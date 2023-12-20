@@ -1,6 +1,29 @@
 
+    const PrivateIP = "http://13.200.156.231:8097";
+
+    //////////////////// Const Private IP declaration  ////////////////////////////////
+
+
+
+
+
 
 window.onload = function () {
+
+
+
+document.cookie = "sessionID";
+
+
+    
+document.querySelectorAll('input[type="number"]').forEach( input => {
+    input.oninput = () =>{
+        if(input.value.length > input.maxLength) input.value = input.value.slice(0,input.maxLength);
+    }; 
+})
+    
+
+
 
     let slideIndex = 0;
     showSlides();
@@ -27,7 +50,15 @@ window.onload = function () {
     }
 
 
+   
+
+
 function Login() {
+
+    document.getElementById('Login_loader').style.display = "block";
+    document.getElementById('login-sec').style.opacity = "0.2";
+
+    
 
     const formE1 = document.querySelector('.form1');
 
@@ -41,9 +72,7 @@ function Login() {
         console.log(data);
 
 
-       // const JwtToken = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4MjE1NzEzOTgyIiwiaWF0IjoxNzAyMTEzODE1LCJleHAiOjE3MDIxMTU2MTV9.qaD2BLNtd5NLaR-DMysEbV8oprdD1QE4y7KUPLu9W7c';
-
-        fetch("http://3.108.240.106:8097/user/loginPage", 
+        fetch(`${PrivateIP}/user/loginPage`, 
         
             {
                 method: "POST",
@@ -64,6 +93,9 @@ function Login() {
                 console.log(data);
 
 
+                document.getElementById('Login_loader').style.display = "none";
+                document.getElementById('login-sec').style.opacity = "1";
+
 
                 if (data.statuscode == 200) {
 
@@ -74,17 +106,35 @@ function Login() {
                     localStorage.setItem('Login-MobileNumber', data.data.mobileNo);
                     localStorage.setItem('Login-Email', data.data.email);
                     localStorage.setItem('User-ID',data.data.userId );
-                    localStorage.setItem('JWT_Token', data.data.jwtToken)
+
+                    sessionStorage.setItem('sessionID',data.data.userId );
+
+                 
                     
                     var name = localStorage.getItem('Login-UserName');
                     var email = localStorage.getItem('Login-Email');
                     var mobileNo = localStorage.getItem('Login-MobileNumber');
                     
-                    console.log(name);
-                    console.log(mobileNo);
-                    console.log(email);
-                    location.assign("Ujjain_Home.html");
+                   
+                    
 
+                                            //  Check if the session ID exists
+
+                            if (sessionStorage.getItem('sessionID')) {
+                                // Session ID exists, redirect to another page
+
+                                location.assign("Ujjain_Home.html");
+
+                               
+
+                                //window.alert('session storage is present');
+                            } else {
+                                // Session ID does not exist
+                                console.log('Session ID does not exist');
+                                window.alert('Please Login again, Something went wrong.');
+                            }
+
+                  
 
 
                 } else {
@@ -93,11 +143,18 @@ function Login() {
 
                 };
 
-                if (isTokenExpired(JwtToken))
-                 {     // Token is expired, redirect to login page or handle reauthentication 
 
-                       window.location.href = "login.html";  
-                      return Promise.reject('Token expired');   }
+               
+
+               
+
+
+
+                // if (isTokenExpired(JwtToken))
+                //  {     // Token is expired, redirect to login page or handle reauthentication 
+
+                //        window.location.href = "login.html";  
+                //       return Promise.reject('Token expired');   }
 
 
 
@@ -114,6 +171,26 @@ function Login() {
 }
 
 
+// if(sessionStorage.getItem('UserID')){
+
+//        location.assign("Ujjain_Home.html");
+
+
+    
+
+// }else{
+//     window.alert('session storage is absent');
+
+// }
+
+
+
+
+
+
+
+
+
 function show_password_login() {
 
     var x = document.getElementById("Password");
@@ -127,11 +204,18 @@ function show_password_login() {
 
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
 
 
 
 function Register() {
 
+
+    
 
     document.getElementById("login-div-contents").style.display = "none";
     document.getElementById("Please-register").style.display = "block";
@@ -158,7 +242,10 @@ function Register() {
         data = Object.fromEntries(formData);
         // console.log(data);
 
-        fetch("http://3.108.240.106:8097/user/registration",
+        document.getElementById('Login_loader').style.display = "block";
+        document.getElementById('login-sec').style.opacity = "0.2";
+
+        fetch(`${PrivateIP}/user/registration`,
             {
                 method: "POST",
                 body: JSON.stringify({
@@ -175,7 +262,10 @@ function Register() {
             .then((response) => response.json())
             .then(data => {
                 console.log(data);
-                //console.log(data.data)
+
+                document.getElementById('Login_loader').style.display = "none";
+                document.getElementById('login-sec').style.opacity = "1";
+
 
                 if (data.statuscode == 200) {
                     //  block of code to be executed if the condition is true
@@ -262,8 +352,13 @@ function Reset() {
         data = Object.fromEntries(formData);
         console.log(data);
 
-        fetch('http://3.108.240.106:8097/user/resetPassword', {
+        document.getElementById('Login_loader').style.display = "block";
+        document.getElementById('login-sec').style.opacity = "0.2";
+
+        fetch(`${PrivateIP}/user/resetPassword`, {
+            
             method: 'PATCH',
+            
             body: JSON.stringify({
 
                 "mobileNumber": data.mobilenumber,
@@ -278,6 +373,10 @@ function Reset() {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+
+                document.getElementById('Login_loader').style.display = "none";
+                document.getElementById('login-sec').style.opacity = "1";
+
 
                 if (data.statuscode == 200) {
 
@@ -308,8 +407,49 @@ function Reset_succesfull_msg() {
 
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+// Mobile  Number min digits error ....
+
+function myFunction() {
+    const inpObj = document.getElementsByClassName('Mobile_number_inputs')[0];
+    if (!inpObj.checkValidity()) {
+        document.getElementById("login_error_msg").style.display = "block";
+      document.getElementById("login_error_msg").innerHTML = "Number should be 10 digits";
+    } else {
+        document.getElementById("login_error_msg").style.display = "none";
+    //   document.getElementById("demo").innerHTML = "Input OK";
+    } 
+}
+
+function myReg_Mobile_no(){
+    
+
+    const inpOb = document.getElementsByClassName('Mobile_number_inputs')[1];
+    if (!inpOb.checkValidity()) {
+        document.getElementById("error_message").style.display = "block";
+      document.getElementById("error_message").innerHTML = "Number should be 10 digits";
+    } else {
+        document.getElementById("error_message").style.display = "none";
+    //   document.getElementById("demo").innerHTML = "Input OK";
+    }
+
+
+  }
+
+  function myReset_Mobile_no(){
+
+    const inpOb = document.getElementsByClassName('Mobile_number_inputs')[2];
+    if (!inpOb.checkValidity()) {
+        document.getElementById("Reset_error_msg").style.display = "block";
+      document.getElementById("Reset_error_msg").innerHTML = "Number should be 10 digits";
+    } else {
+        document.getElementById("Reset_error_msg").style.display = "none";
+    //   document.getElementById("demo").innerHTML = "Input OK";
+    }
+
+  }
 
 
 

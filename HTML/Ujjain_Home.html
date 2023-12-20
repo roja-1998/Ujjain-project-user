@@ -28,7 +28,7 @@
 
     <nav id="Dashboard-nav">
         <div id="Dashsun">
-            <span class="nav-sun"> Fri 14 July</span> <br>
+            <span class="nav-sun"> Fri 15 Dec</span> <br>
             <span class="nav-sun1"> <span id="datetime"></span> </span>
         </div>
         <div id="Dashbhanu">
@@ -42,8 +42,8 @@
              <img id="dashboardprofilelogo" src="../Images/profile logo.PNG" alt=""> 
 
 
-            <a href="login.html">
-                <img id="logouticon" src="../Images/logouticon.png" alt="" srcset="">
+            <a href="index.html">
+                <img id="logouticon" onclick="Logout()" src="../Images/logouticon.png" alt="" srcset="">
  
             </a>
         </div>
@@ -65,7 +65,7 @@
     <section id="aside_main_parentsection">
         <!-- aside section starts here......-->
         <aside id="sidebar">
-            <img id="ujjain-logo" src="../Images/ujjain logo.jpg" alt="">
+            <img id="ujjain-logo" src="../Images/ujjain-darshan.png" alt="">
 
             <div id="home-div" onclick="Home()">Home </div>
             <div id="hotel-div" class="aside_content_divs" onclick="hotelBooking()">Hotel Booking </div>
@@ -85,8 +85,11 @@
         <!--   view  Profile main content  starts from here.......-->
 
         <main id="profile_view_main" style="display: none;">
+            <div id="profile_contents"></div>
+            <div class="loader" id="profile_loader"></div>                        <!--  Loader in view profile  -->
 
             <div id="profile_div">
+                
 
                 <div id="div_top_profile">
     
@@ -94,10 +97,18 @@
                     <img src="../Images/combined-shape.png" onclick="Edit_profileIcon()" id="profile_edit_icon" alt=""> <br>
                     <img src="../Images/viewProfile logo.png" id="viewProfile_img_logo" alt="" srcset=""> 
 
-                        <div class="name_no_div">            
-                            <p id="username_viewprofile">chaithanya</p>
-                            <img src="../Images/phone icon.png" id="phone_icon" alt="" srcset="">
-                            <span id="userNo_viewprofile">+91 <span id="userMobile_viewprofile">8106757879</span></span> <br>
+                        <div class="name_no_div">  
+                            <form action="" id="profile_update_form">
+
+                                <input onkeydown="return /[a-z]/i.test(event.key)" id="username_viewprofile" readonly value="chaithaya" name="username_update"></input>
+                                <img src="../Images/phone icon.png" id="phone_icon" alt="" srcset="">
+
+                                <span id="userNo_viewprofile">+91
+                                    <input type="number"  min="1000000000" maxlength="10" readonly  id="userMobile_viewprofile" value="8100000000" name="userMB_update" ></input>
+                                    <input type="submit" onclick="userUpdateBtn()" id="Update_btn">
+                            
+                                  </span>
+                            </form>   <br>
                         </div>  
 
                 
@@ -147,23 +158,21 @@
                 </div>
 
                 <div class="profile_div2_childs shop_pro">
-                    <h3 class="childs_name">Shopping</h3>
-                        <div class="All_bookings_scroll " id="ShoppingBook_inViewprofile"> 
-                      
 
-                            <div class="child_divs hotel_booking_divs">
-                                <div><img src="../Images/hotel building 2.png" class="hotel_build_imgs" alt=""></div>
-                                <div>
-                                    <h1 class="hotel_names"> Sri Siva Ganga Bhakthi Nivas</h1>
-                                    <p class="price"> <span class="currency_symbol">&#8377;</span> 250 </p>
-                                </div>
-                            </div>
-                           
+                    <h3 class="childs_name">Airport Rides</h3>
+                        <div class="All_bookings_scroll " id="AirportBook_inViewprofile">      
                         </div>
- 
-
 
                 </div>
+
+                <div class="profile_div2_childs shop_pro" id="shopdiv_parent">
+
+                    <h3 class="childs_name">Shopping</h3>
+                        <div class="All_bookings_scroll " id="ShoppingBKG_inViewprofile">      
+                        </div>
+
+                </div>
+
 
 
 
@@ -302,6 +311,9 @@
             </div>
 
 
+            
+
+
 
 
             
@@ -310,19 +322,25 @@
         <!----------------------------- upadate profile ------------------------->
  
  
-        <main class="profile-update-section" id="profile-update-container" style="display: none;">
+        <!-- <main class="profile-update-section" id="profile-update-container" style="display: none;">
             <h1 class="update-profile-heading01">Update Profile Here:</h1>
 
             <form action="" class="update_form" id="form-100">
-                    <input type="text" name="name" placeholder="Your Name" class="update-name01" id="update-name10"><br>
+                    <input onkeydown="return /[a-z]/i.test(event.key)"  name="name" placeholder="Your Name" class="update-name01" id="update-name10"><br>
                     <input type="email" name="email" placeholder="Email Address" class="update-name01" id="update-email02"><br>
-                    <input type="text" name="mobileNum" placeholder="Mobile Number" minlength="10" maxlength="10" class="update-name01" id="update-number03"><br>
+                    <input type="number" onkeyup="myUpdate_user()" name="mobileNum" placeholder="Mobile Number" min="1000000000" maxlength="10" class="update-name01" id="update-number03"><br>
                     <input type="password" name="password" placeholder="Password" class="update-name01" id="update-password04"><br>
-                    <input type="submit"  value="update" id="update_btn" onclick="submiteApiCall()">
+                   
+                    <p id="Update_error_message" class="error_msg_inHome" >Error message</p>
+
+                    <div id="can_updatebtn_div">
+                        <input type="button" onclick="Cancel_UpdateBtn()" value="Cancel" id="cancel_profile_btn"/>
+                        <input type="submit"  value="Save Changes" id="update_btn" onclick="submiteApiCall()">
+                    </div>
        
             </form>
        
-        </main>
+        </main> -->
 
 
 
@@ -342,6 +360,11 @@
                     <div #swiperRef="" class="swiper mySwiper" id="swiper_up">
                         <div class="swiper-wrapper our_hotels_api" id="swiper-wrapper_up">
 
+                            <div class="swiper-slide homeslides"></div>
+                            <div class="swiper-slide homeslides"></div>
+                            <div class="swiper-slide homeslides"></div>
+                            <div class="swiper-slide homeslides"></div>
+                            <div class="swiper-slide homeslides"></div>
                             <div class="swiper-slide homeslides"></div>
                             <div class="swiper-slide homeslides"></div>
                             <div class="swiper-slide homeslides"></div>
@@ -533,6 +556,7 @@
                 </div>
 
                 <h1 id="Book_hotel_name">Select Hotel</h1>
+                <span id="Hotel_type_hotelbkg">Normal</span>
                 <span id="Book_hotel_price"> </span>
 
                 <div id="Book_hotel_facilities">
@@ -583,6 +607,8 @@
 
                             <i class="fa fa-user popup" aria-hidden="true"></i> <span
                                 class="popup_profile_num hotelpersons"></span>
+                                
+                                 <span id="Hotel_type_hotelbkgin_popup"></span>
 
                             <!-- <span> <img src="../Images/destination_popup_icon.png" class="popup_des_img"
                                     alt="destination-image">
@@ -618,15 +644,16 @@
 
 
                             <form action="" class="hotel_form" id="hotelsave_form" action="">
-                                <input type="text" class="inputs_hotelsave" name="username" id=""
+                                <input onkeydown="return /[a-z]/i.test(event.key)"  class="inputs_hotelsave" minlength="3" name="username" id=""
                                     placeholder="Your Name">
-                                <input type="text" class="inputs_hotelsave" minlength="10" maxlength="10" name="mobileNumber" id=""
+                                <input type="number" onkeyup="myHotel_SaveMB()" min="1000000000" class="inputs_hotelsave"  maxlength="10" name="mobileNumber" id="hotel_save_mb"
                                     placeholder="Mobile Number">
-                                <input type="text" class="inputs_hotelsave" minlength="1" maxlength="2" name="noofadults" id=""
+                                <input type="number" class="inputs_hotelsave" minlength="1" maxlength="2" name="noofadults" id=""
                                     placeholder="No. of Adults">
-                                <input type="text" class="inputs_hotelsave lastinputsave" minlength="1" maxlength="2" name="noofchilds" id=""
+                                <input type="number" class="inputs_hotelsave lastinputsave" minlength="1" maxlength="2" name="noofchilds" id=""
                                     placeholder="No. of Children">
 
+                                    <p id="hotel_save_eror" class="error_msg_inHome">hi</p>
                                 <div class="hotelsaveflare">
                                     <span style="font-size: larger">Total Fare</span>
                                     <span class="hotelsave_rate" >&#8377; 360</span>
@@ -666,12 +693,12 @@
                             </ol>
                             <span class="total_fare">Total Fare</span> <span class="total_price hotelsave_rate">&#8377;
                                 360</span> <br>
-                            <div class="details_div hotelsaveconfdetailsdiv">
+                            <!-- <div class="details_div hotelsaveconfdetailsdiv">
                                 <div class="prof_div">
                                     <img class="profile_img" src="../Images/profile img.png" alt="">
                                     <div class="prof_details_div">
-                                        <span class="prof_name">Haswith Kumar</span> <br>
-                                        <span class="prof_no">Mobile: +91 9876543210</span>
+                                        <span class="prof_name hotelconfirm_name">Haswith Kumar</span> <br>
+                                        <span class="prof_no ">Mobile: +91 <span class="hotelconfirm_mobileNo">9876543210</span> </span>
                                     </div>
                                 </div>
                                 <div class="whats_msg_div">
@@ -679,7 +706,7 @@
                                     <img class="whats_msg_imgs" src="../Images/message icon.png" alt="">
                                 </div>
 
-                            </div>
+                            </div> -->
                         </div>
 
                     </div>
@@ -699,6 +726,8 @@
                     <div #swiperRef="" class="swiper mySwiper" id="swiper_up_hotelbooking">
                         <div class="swiper-wrapper our_hotels_api" id="swiper-wrapper_up_hotelbooking">
 
+                            <div class="swiper-slide homeslides"></div>
+                            <div class="swiper-slide homeslides"></div>
                             <div class="swiper-slide homeslides"></div>
                             <div class="swiper-slide homeslides"></div>
                             <div class="swiper-slide homeslides"></div>
@@ -801,6 +830,13 @@
 
                             <div class="swiper-slide puja_slides_up"></div>
                             <div class="swiper-slide puja_slides_up"></div>
+                            <div class="swiper-slide puja_slides_up"></div>
+                            <div class="swiper-slide puja_slides_up"></div>
+                            <div class="swiper-slide puja_slides_up"></div>
+                            <div class="swiper-slide puja_slides_up"></div>
+                            <div class="swiper-slide puja_slides_up"></div>
+                            <div class="swiper-slide puja_slides_up"></div>
+                            
 
 
                         </div>
@@ -839,8 +875,8 @@
                                         <span class="Package_pricenum puja-api-popup-name04">&#8377; 500</span>
                                     </div>
                                 </div>
-                                <img class="Package_delete_icon" style="margin-left: 25px;" src="../Images/delete_icon.png"
-                                    alt="">
+                                <!-- <img class="Package_delete_icon" style="margin-left: 25px;" src="../Images/delete_icon.png"
+                                    alt=""> -->
                             </div>
  
                             <!-- <div class="puja_package_divs" style="display: none;">
@@ -878,7 +914,7 @@
                         </div>
  
     
-                            <h3 class="booking_ins" style="margin-top: 150px;">Booking Instructions :</h3>
+                            <h3 class="booking_ins" style="margin-top: 110px;">Booking Instructions :</h3>
                             <ol class="hotelbooking_ol">
                                 <li class="li">Cash Payment only allowed. </li>
                                 <li class="li">Concerned person will pickup you from the Airport or Bustop and Drop you
@@ -889,7 +925,7 @@
                             </ol>
                             <span class="total_fare">Total Fare</span>
                             <span class="Package_totalprice puja-api-price" id="Package_totalprice"></span>
-                            <input type="button" class="popup_bookhotel_btn" value="Book Puja Package"
+                            <input type="button" class="popup_bookhotel_btn"  value="Book Puja Package"
                                 onclick="popup_packageBooking_btn()">
     
                     </div>
@@ -961,7 +997,7 @@
                         </ol>
                         <span class="total_fare">Total Fare</span>
                         <span class="pujapoup_total_price puja-api-price" id="Confirmation_booking_popup_total_price"></span>
-                        <div class="details_div">
+                        <!-- <div class="details_div">
                             <div class="prof_div">
                                 <img class="profile_img" src="../Images/profile img.png" alt="">
                                 <div class="prof_details_div">
@@ -974,7 +1010,7 @@
                                 <img class="whats_msg_imgs" src="../Images/message icon.png" alt="">
                             </div>
 
-                        </div>
+                        </div> -->
 
                     </div>
                 </div>
@@ -999,21 +1035,13 @@
                         <div class="swiper-wrapper" id="swiper-wrapper_puja_down">
 
 
-                            <div class="swiper-slide">
-                                <div class="Ujjain_FamousPujas_div">
-                                    <img src="../Images/Kaalsarp Dosha Puja img.png" class="Ujjain_FamousPujas_imgs"
-                                        alt="" srcset="">
-                                    <p class="Famous_puja_name">Kaalsarp Dosha Puja</p>
-                                    <div class="Famous_Location_pujaname_div">
-                                        <img src="../Images/Location icon.png" class="Famous_location_img" alt="">
-                                        <span class="Famous_Temple_name">Shree Kal Bhaira Temple</span>
-                                    </div>
-                                    <span class="Famous_puja_price">&#8377; 360</span>
-                                    <input type="button" class="Famous_puja_booknow_btn" value="Book Now">
-                                </div>
-                            </div>
+                            
 
-                            <div class="swiper-slide">
+                            <div class="swiper-slide ujjainFamous_puja"></div>
+                            <div class="swiper-slide ujjainFamous_puja"> </div>
+                                <div class="swiper-slide ujjainFamous_puja"></div>
+                                     <div class="swiper-slide ujjainFamous_puja"></div>
+                            <!-- <div class="swiper-slide">
                                 <div class="Ujjain_FamousPujas_div">
                                     <img src="../Images/Kuja Dosha Puja img.png" class="Ujjain_FamousPujas_imgs" alt=""
                                         srcset="">
@@ -1072,7 +1100,7 @@
                             </div>
                             <div class="swiper-slide"> </div>
                             <div class="swiper-slide"> </div>
-                            <div class="swiper-slide"> </div>
+                            <div class="swiper-slide"> </div> -->
 
 
                         </div>
@@ -1086,6 +1114,16 @@
 
                     </div>
                 </div>
+
+
+
+                   <!--    img  Loader  while fetching data from API...    -->
+
+                   <div id="ujjain_Famous_loader" class="bottum_loader ">                        
+                    <img class="Loader_img_bottum zoom-in-zoom-out" src="../Images/ujjain_logo_png.png" alt="">
+                </div>
+
+
 
             </section>
         </main>
@@ -1103,6 +1141,10 @@
                         <div class="swiper-wrapper" id="swiper-wrapper_ujjain_up">
 
 
+                            <div class="swiper-slide ujjain_swiperslides"> </div>
+                            <div class="swiper-slide ujjain_swiperslides"> </div>
+                            <div class="swiper-slide ujjain_swiperslides"> </div>
+                            <div class="swiper-slide ujjain_swiperslides"> </div>
                             <div class="swiper-slide ujjain_swiperslides"> </div>
                             <div class="swiper-slide ujjain_swiperslides"> </div>
                             <div class="swiper-slide ujjain_swiperslides"> </div>
@@ -1230,7 +1272,7 @@
                         </ol>
                         <span class="total_fare">Total Fare</span> <span class="total_price ujjainpopup_price">&#8377;
                             950</span> <br>
-                        <div class="details_div">
+                        <!-- <div class="details_div">
                             <div class="prof_div">
                                 <img class="profile_img" src="../Images/profile img.png" alt="">
                                 <div class="prof_details_div">
@@ -1242,7 +1284,7 @@
                                 <img class="whats_msg_imgs" src="../Images/whatsapp logo.png" alt="">
                                 <img class="whats_msg_imgs" src="../Images/message icon.png" alt="">
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
 
@@ -1294,6 +1336,8 @@
                         <div id="UjjainDarshan_hotels_loader_loader" class="bottum_loader ">                        
                             <img class="Loader_img_bottum zoom-in-zoom-out" src="../Images/ujjain_logo_png.png" alt="">
                         </div>
+
+
             </section>
 
 
@@ -1351,15 +1395,15 @@
                         <div id="omkar_guides_packages_divs">
 
                             <div class="puja_package_divs omkarpackagediv">
-                                <img class="Package_imgs" src="../Images/image 1.PNG" alt="" srcset="">
+                                <img class="Package_imgs omkarpopup_img" src="../Images/image 1.PNG" alt="" srcset="">
                                 <div>
                                     <span class="omkarpujaNames">Ram Ghat</span>
                                     <div style="display: flex;">
                                         <img class="Package_location_img" src="../Images/destination_popup_icon.png"
                                             style="width: 19px;" alt="">
-                                        <span class="Package_templeName" style="font-size: 11px;">2.3 km</span>
+                                        <span class="Package_templeName omkarkm" style="font-size: 11px;">2.3 km</span>
 
-                                        <span class="Package_pricenum">&#8377; 250</span>
+                                        <span class="Package_pricenum omkarpopup_price">&#8377; 250</span>
                                     </div>
                                 </div>
                                 <img class="ujjain_delete_icon" src="../Images/delete_icon.png" alt="">
@@ -1406,7 +1450,7 @@
                         </ol>
                         <span class="total_fare">Total Fare</span> <span class="total_price omkartotalprice">&#8377;
                             950</span> <br>
-                        <div class="details_div">
+                        <!-- <div class="details_div">
                             <div class="prof_div">
                                 <img class="profile_img" src="../Images/profile img.png" alt="">
                                 <div class="prof_details_div">
@@ -1418,7 +1462,7 @@
                                 <img class="whats_msg_imgs" src="../Images/whatsapp logo.png" alt="">
                                 <img class="whats_msg_imgs" src="../Images/message icon.png" alt="">
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
 
@@ -1499,8 +1543,14 @@
                         <div class="swiper-wrapper" id="swiper-wrapper_maabag_up">
 
 
-                            <div class="swiper-slide ujjain_swiperslides"> </div>
-                            <div class="swiper-slide ujjain_swiperslides"> </div>
+                            <div class="swiper-slide ujjain_swiperslides Maabagla_slides"> </div>
+                            <div class="swiper-slide ujjain_swiperslides Maabagla_slides"> </div>
+                            <div class="swiper-slide ujjain_swiperslides Maabagla_slides"> </div>
+                            <div class="swiper-slide ujjain_swiperslides Maabagla_slides"> </div>
+                            <div class="swiper-slide ujjain_swiperslides Maabagla_slides"> </div>
+
+                            <div class="swiper-slide ujjain_swiperslides Maabagla_slides"> </div>
+
 
                         </div>
                     </div>
@@ -1528,6 +1578,18 @@
 
                         <div id="maabagla_guides_packages_divs">
                             <!--   Mabaglamukhi package divs from apis  -->
+                            <div class="puja_package_divs maabaglapackagediv">
+                                               <img class="Package_imgs mabagala_popupimg" src="../Images/image 2.PNG" alt="" srcset="">
+                                              <div>  
+                                                  <span class="omkarpujaNames mabaglaname">Ram Ghat</span>
+                                                   <div class="dis_price_div" >
+                                                       <img class="Package_location_img" src="../Images/destination_popup_icon.png" style="width: 19px;"  alt="" >
+                                                      <span class="Package_templeName mabaglakm" style="font-size: 11px;">0</span>
+                                                       <span class="Package_pricenum "  >&#8377; <span class="maabaglaprice"> 00</span>  </span>
+                                              </div>
+                                              </div>
+                                                  <img class="maabagla_deleteicon" id="maabagladelete"  onclick="delete_maabaglacard()"  src="../Images/delete_icon.png" alt="">
+                            </div>
 
                         </div>
 
@@ -1569,7 +1631,7 @@
                         </ol>
                         <span class="total_fare">Total Fare</span> <span class="total_price maabagla_totalprice">&#8377;
                             950</span> <br>
-                        <div class="details_div">
+                        <!-- <div class="details_div">
                             <div class="prof_div">
                                 <img class="profile_img" src="../Images/profile img.png" alt="">
                                 <div class="prof_details_div">
@@ -1581,7 +1643,7 @@
                                 <img class="whats_msg_imgs" src="../Images/whatsapp logo.png" alt="">
                                 <img class="whats_msg_imgs" src="../Images/message icon.png" alt="">
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
 
@@ -1665,7 +1727,7 @@
                                             srcset="">
                                         <span class="ujjain_km">2.3 km</span>
                                     </div>
-                                    <input type="button" class="Topvisited_maabag_btn" value="Book a Guide"
+                                    <input type="button" class="Topvisited_maabag_btn" value="Book a Ride"
                                         onclick="Taxifirstcard()">
                                 </div>
                             </div>
@@ -1683,7 +1745,7 @@
                                             srcset="">
                                         <span class="ujjain_km">2.3 km</span>
                                     </div>
-                                    <input type="button" class="Topvisited_maabag_btn" value="Book a Guide" onclick="">
+                                    <input type="button" class="Topvisited_maabag_btn" value="Book a Ride" onclick="">
                                 </div>
                             </div>
                             <div class="swiper-slide">
@@ -1699,7 +1761,7 @@
                                             srcset="">
                                         <span class="ujjain_km">2.3 km</span>
                                     </div>
-                                    <input type="button" class="Topvisited_maabag_btn" value="Book a Guide" onclick="">
+                                    <input type="button" class="Topvisited_maabag_btn" value="Book a Ride" onclick="">
                                 </div>
                             </div>
                             <div class="swiper-slide">
@@ -1715,7 +1777,7 @@
                                             srcset="">
                                         <span class="ujjain_km">2.3 km</span>
                                     </div>
-                                    <input type="button" class="Topvisited_maabag_btn" value="Book a Guide" onclick="">
+                                    <input type="button" class="Topvisited_maabag_btn" value="Book a Ride" onclick="">
                                 </div>
                             </div>
 
@@ -1763,7 +1825,7 @@
                             </ol>
                             <span class="total_fare">Total Fare</span>
                             <span class="total_price taxi_price_inpoup ">&#8377; 100</span>
-                            <input type="submit" class="popup_bookhotel_btn" value="Book Package"
+                            <input type="submit" class="popup_bookhotel_btn" value="Book Taxi"
                                 onclick="taxibook_popup_btn()">
 
                         </form>
@@ -1782,7 +1844,11 @@
                         <img class="booking_sucessfull_img taxiconfirmsucimg"
                             src="../Images/sucessfullybooking_logo.png" alt="">
                         <h1 class="sucessful_msg taxiconfirmsucmsg">Your Taxi Booking <br> Confirmed Successfully.</h1>
-                        <h3 class="taxiconfir_h3"> Available Taxi</h3>
+
+                        <h5 class="Agent_msg">Our Agent will pickup you from the Airport or Bustop <br>
+                            and Drop you at the Hotel by himself.</h5>
+
+                        <!-- <h3 class="taxiconfir_h3"> Available Taxi</h3>
 
                         <div class="details_div taxiconfirmdd">
                             <div class="prof_div taxiconfirmprofdiv">
@@ -1805,9 +1871,9 @@
                                 </div>
                                 <img class="taxi_whats_msg_imgs" src="../Images/message icon.png" alt="">
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="details_div taxiconfirmdd">
+                        <!-- <div class="details_div taxiconfirmdd">
                             <div class="prof_div taxiconfirmprofdiv">
                                 <img class="profile_img" src="../Images/profile img.png" alt="">
                                 <div class="prof_details_div">
@@ -1828,7 +1894,7 @@
                                 </div>
                                 <img class="taxi_whats_msg_imgs" src="../Images/message icon.png" alt="">
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
                 </div> <!--        Taxi  pop up ends here...                -->
@@ -1854,7 +1920,7 @@
                                     <img src="../Images/destination icon.PNG" class="destination-image"
                                         alt="destination-image">
                                     <span class="top-visited-km">2.3 km</span>
-                                    <input type="button" id="top_visited_btn" value="Book a Guide">
+                                    <input type="button" id="top_visited_btn" value="Book a Ride">
                                 </div>
                             </div>
 
@@ -1869,7 +1935,7 @@
                                     <img src="../Images/destination icon.PNG" class="destination-image"
                                         alt="destination-image">
                                     <span class="top-visited-km">2.3 km</span>
-                                    <input type="button" class="top_visited_btn" value="Book a Guide">
+                                    <input type="button" class="top_visited_btn" value="Book a Ride">
                                 </div>
                             </div>
 
@@ -1884,7 +1950,7 @@
                                     <img src="../Images/destination icon.PNG" class="destination-image"
                                         alt="destination-image">
                                     <span class="top-visited-km">2.3 km</span>
-                                    <input type="button" class="top_visited_btn" value="Book a Guide">
+                                    <input type="button" class="top_visited_btn" value="Book a Ride">
                                 </div>
                             </div>
 
@@ -1899,7 +1965,7 @@
                                     <img src="../Images/destination icon.PNG" class="destination-image"
                                         alt="destination-image">
                                     <span class="top-visited-km">2.3 km</span>
-                                    <input type="button" class="top_visited_btn" value="Book a Guide">
+                                    <input type="button" class="top_visited_btn" value="Book a Ride">
                                 </div>
                             </div>
 
@@ -1914,7 +1980,7 @@
                                     <img src="../Images/destination icon.PNG" class="destination-image"
                                         alt="destination-image">
                                     <span class="top-visited-km">2.3 km</span>
-                                    <input type="button" class="top_visited_btn" value="Book a Guide">
+                                    <input type="button" class="top_visited_btn" value="Book a Ride">
                                 </div>
                             </div>
 
@@ -1929,7 +1995,7 @@
                                     <img src="../Images/destination icon.PNG" class="destination-image"
                                         alt="destination-image">
                                     <span class="top-visited-km">2.3 km</span>
-                                    <input type="button" id="top_visited_btn" value="Book a Guide">
+                                    <input type="button" id="top_visited_btn" value="Book a Ride">
                                 </div>
                             </div>
 
@@ -1944,7 +2010,7 @@
                                     <img src="../Images/destination icon.PNG" class="destination-image"
                                         alt="destination-image">
                                     <span class="top-visited-km">2.3 km</span>
-                                    <input type="button" class="top_visited_btn" value="Book a Guide">
+                                    <input type="button" class="top_visited_btn" value="Book a Ride">
                                 </div>
                             </div>
 
@@ -2003,7 +2069,7 @@
                                             srcset="">
                                         <span class="ujjain_km">2.3 km</span>
                                     </div>
-                                    <input type="button" class="Topvisited_maabag_btn" value="Book a Guide"
+                                    <input type="button" class="Topvisited_maabag_btn" value="Book a Ride"
                                         onclick="Airportfirstcard()">
                                 </div>
                             </div>
@@ -2021,7 +2087,7 @@
                                             srcset="">
                                         <span class="ujjain_km">2.3 km</span>
                                     </div>
-                                    <input type="button" class="Topvisited_maabag_btn" value="Book a Guide"
+                                    <input type="button" class="Topvisited_maabag_btn" value="Book a Ride"
                                         onclick="Airportfirstcard()">
                                 </div>
                             </div>
@@ -2038,7 +2104,7 @@
                                             srcset="">
                                         <span class="ujjain_km">2.3 km</span>
                                     </div>
-                                    <input type="button" class="Topvisited_maabag_btn" value="Book a Guide" onclick="">
+                                    <input type="button" class="Topvisited_maabag_btn" value="Book a Ride" onclick="">
                                 </div>
                             </div>
                             <div class="swiper-slide">
@@ -2054,7 +2120,7 @@
                                             srcset="">
                                         <span class="ujjain_km">2.3 km</span>
                                     </div>
-                                    <input type="button" class="Topvisited_maabag_btn" value="Book a Guide" onclick="">
+                                    <input type="button" class="Topvisited_maabag_btn" value="Book a Ride" onclick="">
                                 </div>
                             </div>
 
@@ -2106,7 +2172,7 @@
                             </ol>
                             <span class="total_fare">Total Fare</span>
                             <span class="total_price ">&#8377; 950</span>
-                            <input type="submit" class="popup_bookhotel_btn" value="Book Package"
+                            <input type="submit" class="popup_bookhotel_btn" value="Book Taxi"
                                 onclick="Airportbook_popup_btn()">
                         </form>
 
@@ -2125,9 +2191,13 @@
                         <img class="booking_sucessfull_img taxiconfirmsucimg"
                             src="../Images/sucessfullybooking_logo.png" alt="">
                         <h1 class="sucessful_msg taxiconfirmsucmsg">Your Airport Booking <br> Confirmed Successfully.</h1>
-                        <h3 class="taxiconfir_h3"> Available Taxi</h3>
 
-                        <div class="details_div taxiconfirmdd">
+                        <h5 class="Agent_msg">Our Agent will pickup you from the Airport or Bustop <br>
+                            and Drop you at the Hotel by himself.</h5>
+
+                        <!-- <h3 class="taxiconfir_h3"> Available Taxi</h3> -->
+
+                        <!-- <div class="details_div taxiconfirmdd">
                             <div class="prof_div taxiconfirmprofdiv">
                                 <img class="profile_img" src="../Images/profile img.png" alt="">
                                 <div class="prof_details_div">
@@ -2148,9 +2218,9 @@
                                 </div>
                                 <img class="taxi_whats_msg_imgs" src="../Images/message icon.png" alt="">
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="details_div taxiconfirmdd">
+                        <!-- <div class="details_div taxiconfirmdd">
                             <div class="prof_div taxiconfirmprofdiv">
                                 <img class="profile_img" src="../Images/profile img.png" alt="">
                                 <div class="prof_details_div">
@@ -2171,7 +2241,7 @@
                                 </div>
                                 <img class="taxi_whats_msg_imgs" src="../Images/message icon.png" alt="">
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
                 </div> <!--        Airport  pop up ends here...                -->
@@ -2197,7 +2267,7 @@
                                     <img src="../Images/destination icon.PNG" class="destination-image"
                                         alt="destination-image">
                                     <span class="top-visited-km">2.3 km</span>
-                                    <input type="button" id="top_visited_btn" value="Book a Guide">
+                                    <input type="button" id="top_visited_btn" value="Book a Ride">
                                 </div>
                             </div>
 
@@ -2212,7 +2282,7 @@
                                     <img src="../Images/destination icon.PNG" class="destination-image"
                                         alt="destination-image">
                                     <span class="top-visited-km">2.3 km</span>
-                                    <input type="button" class="top_visited_btn" value="Book a Guide">
+                                    <input type="button" class="top_visited_btn" value="Book a Ride">
                                 </div>
                             </div>
 
@@ -2227,7 +2297,7 @@
                                     <img src="../Images/destination icon.PNG" class="destination-image"
                                         alt="destination-image">
                                     <span class="top-visited-km">2.3 km</span>
-                                    <input type="button" class="top_visited_btn" value="Book a Guide">
+                                    <input type="button" class="top_visited_btn" value="Book a Ride">
                                 </div>
                             </div>
 
@@ -2242,7 +2312,7 @@
                                     <img src="../Images/destination icon.PNG" class="destination-image"
                                         alt="destination-image">
                                     <span class="top-visited-km">2.3 km</span>
-                                    <input type="button" class="top_visited_btn" value="Book a Guide">
+                                    <input type="button" class="top_visited_btn" value="Book a Ride">
                                 </div>
                             </div>
 
@@ -2257,7 +2327,7 @@
                                     <img src="../Images/destination icon.PNG" class="destination-image"
                                         alt="destination-image">
                                     <span class="top-visited-km">2.3 km</span>
-                                    <input type="button" class="top_visited_btn" value="Book a Guide">
+                                    <input type="button" class="top_visited_btn" value="Book a Ride">
                                 </div>
                             </div>
 
@@ -2272,7 +2342,7 @@
                                     <img src="../Images/destination icon.PNG" class="destination-image"
                                         alt="destination-image">
                                     <span class="top-visited-km">2.3 km</span>
-                                    <input type="button" id="top_visited_btn" value="Book a Guide">
+                                    <input type="button" id="top_visited_btn" value="Book a Ride">
                                 </div>
                             </div>
 
@@ -2287,7 +2357,7 @@
                                     <img src="../Images/destination icon.PNG" class="destination-image"
                                         alt="destination-image">
                                     <span class="top-visited-km">2.3 km</span>
-                                    <input type="button" class="top_visited_btn" value="Book a Guide">
+                                    <input type="button" class="top_visited_btn" value="Book a Ride">
                                 </div>
                             </div>
 
@@ -2319,7 +2389,7 @@
 
             <section id="About_shopping">
 
-                <h3>Shopping</h3>
+                <h3>Trending</h3>
 
                 <div id="about_shopping_divs">
                     <div #swiperref="" class="swiper mySwiper swiper-initialized swiper-horizontal swiper-backface-hidden"id="swiper_shopping_down">
@@ -2329,6 +2399,13 @@
 
                             <div class="swiper-slide shopping_slides"></div>
                             <div class="swiper-slide shopping_slides"></div>
+                            <div class="swiper-slide shopping_slides"></div>
+                            <div class="swiper-slide shopping_slides"></div>
+                           
+                            <!-- <div class="swiper-slide shopping_slides"></div>
+                            <div class="swiper-slide shopping_slides"></div>
+                            <div class="swiper-slide shopping_slides"></div>
+                            <div class="swiper-slide shopping_slides"></div> -->
                             
 
 
@@ -2364,19 +2441,19 @@
  
                         <div id="shopPackageBooking_popupdiv">
                             <div class="shoppingfisrt_sec_popup">
-                                <h3 class="popup_shopping_h3">Puja Package Booking</h3>
+                                <h3 class="popup_shopping_h3"> Booking Items</h3>
                                 <img class="shoppingclose_icon" src="../Images/close icon.png"
                                     onclick="shoppingBooking_closePopUp()" alt="" srcset="">
                             </div>
-                            <h4 class="popup_shopping_name">Selected Pujas</h4>
+                           
         
                             <div class="shoppingscrolling-container10">
                                 <div class="shopping_package_divs">
-                                    <img class="shoppingPackage_imgs shop-api-card-img02" src="../Images/Kaalsarp Dosha Puja img.png" alt=""
+                                    <img id="shopping_poup_img" class="shoppingPackage_imgs shop-api-card-img02" src="../Images/Kaalsarp Dosha Puja img.png" alt=""
                                         srcset="">
                                     <div style="display: flex;">
                                         <div>
-                                            <span class="shoppingNames shopping-api-popup-name01">Kaalsarp Dosha Puja</span>
+                                            <span class="shoppingNames shopping-api-popup-name01" id="shopping_name_inpoup">Kaalsarp Dosha Puja</span>
                                             <div class="quatity-line01">
                                                 <p class="qty">Qty :</p>
                                                 <div class="counting-box01">
@@ -2394,7 +2471,7 @@
                                             </div>
                                         </div>
                                         <div>
-                                            <span class="shoppingPackage_pricenum shopping-api-amount01">&#8377; 500</span>
+                                            <span  class="shoppingPackage_pricenum shopping_popup_price">&#8377; 500</span>
                                         </div>
                                     </div>
                                 
@@ -2404,18 +2481,23 @@
                             <h3 class="booking_ins" style="margin-top: 150px;">Booking Instructions :</h3>
                             <ol class="hotelbooking_ol">
                                 <li class="li">Cash Payment only allowed. </li>
-                                <li class="li">Concerned person will pickup you from the Airport or Bustop and Drop you
-                                    at the Hotel by himself.</li>
-                                <li class="li">You can check-in to the hotel and Pay if you like the hotel.</li>
-                                <li class="li">You can change your Hotel at the same time to the best one.</li>
+                            <li class="li">Concerned person will pickup your item from the Nearby shop and Drop it to
+                                you
+                                at the Hotel by himself. </li>
+                            <li class="li">You can pay the money at the hotel to the Delivery Agent.</li>
+                           
         
                             </ol>
+                            <div class="total-items01">
+                                <p>Total Items</p>
+                                <p class="conting-numbers01">1</p>
+                            </div>
                             <div>
                                 <span class="total_fare">Total Fare</span>
-                                <span class="shoppingPackage_totalprice shopping-api-amount01" id="Package_totalprice">500</span>
+                                <span class="shoppingPackage_totalprice shopping_popup_price" id="Package_totalprice">500</span>
                             </div>
                         
-                            <input type="button" onclick="shopconfirmation()"  class="shopping_bookhotel_btn" value="Book Puja Package">
+                            <input type="button" onclick="shopconfirmation()"  class="shopping_bookhotel_btn" value="Order Now">
         
                         </div>
  
@@ -2427,28 +2509,29 @@
                     <div id="shoppingConfirmation_popup_div" style="display: none;">
         
                         <div class="fisrt_sec_popup">
-                            <h3 class="popup_pujabooking_h3">Guide Booking</h3>
+                            <h3 class="popup_pujabooking_h3"> Booking Items</h3>
                             <img class="close_icon" src="../Images/close icon.png"
-                                onclick="ujjainConfirmation_closePopUp()" alt="" srcset="">
+                                onclick="ShoppingConfirmation_closePopUp()" alt="" srcset="">
                         </div>
                         <img class="booking_sucessfull_img" src="../Images/sucessfullybooking_logo.png" alt="">
                         <h1 class="sucessful_msg">Your Package Booking <br> Confirmed Successfully.</h1>
-                        <h5 class="Agent_msg">Our Agent will pickup you from the Airport or Bustop <br>
-                            and Drop you at the Hotel by himself.</h5>
+                        <h5 class="Agent_msg">Our Agent will pickup your item from the Nearby shop <br> and Drop it to you at Hotel by himself.</h5>
                         <h4 class="sucessful_ins">Booking Instructions :</h4>
                         <ol class="sucessful_ol">
+                           
                             <li class="li">Cash Payment only allowed. </li>
-                            <li class="li">Concerned person will pickup you from the Airport or Bustop and Drop you
-                                at the Hotel by himself.</li>
-                            <li class="li">You can check-in to the hotel and Pay if you like the hotel.</li>
-                            <li class="li">You can change your Hotel at the same time to the best one.</li>
+                            <li class="li">Concerned person will pickup your item from the Nearby shop and Drop it to
+                                you
+                                at the Hotel by himself. </li>
+                            <li class="li">You can pay the money at the hotel to the Delivery Agent.</li>
+                           
                         </ol>
                         <div class="total-items01">
                             <p>Total Items</p>
                             <p class="conting-numbers01">1</p>
                         </div>
                         <div class="total-fare01">
-                            <span class="total_fare">Total Fare</span> <span class="total_price ujjainpopup_price shopping-api-amount01">&#8377;
+                            <span class="total_fare">Total Fare</span> <span class="total_price shopping_popup_price shopping-api-amount01">&#8377;
                                 950</span> <br>
         
                         </div>
@@ -2473,10 +2556,9 @@
 
             </section> <!-- shopping slides ends here -->
 
-            
             <section id="About_gallery">
 
-                <h3>Photos & Gallery</h3>
+                <h3>Most Sellings</h3>
 
                 <div id="about_gallery_divs">
                     <div #swiperref=""
@@ -2485,7 +2567,128 @@
                         <div class="swiper-wrapper" id="swiper-wrapper_gallery_down" aria-live="polite"
                             style="transition-duration: 0ms; transition-delay: 0ms; transform: translate3d(392px, 0px, 0px);">
 
-                            <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 7"
+
+
+                            <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 7" style="width: 166px; margin-right: 30px;">
+                                <div class="Ujjain_FamousPujas_div gallerydivs_contents">
+                                    <img src="../Images/shoppingimg1.png" class="Ujjain_FamousPujas_imgs galleryimg"
+                                        alt="" srcset="">
+                                    <div class="Famous_Location_pujaname_div">
+
+                                        <span class="Famous_Temple_name">Rudraksha Mala</span>
+
+
+
+                                    </div>
+                                    <div class="price-div">
+                                        <span class="shopping-price">&#8377; 499</span>
+                                        <div class="shop-button">
+                                            <input type="button" class="shopping-down-btn" value="Order Now">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 7" style="width: 166px; margin-right: 30px;">
+                                <div class="Ujjain_FamousPujas_div gallerydivs_contents">
+                                    <img src="../Images/shoppingimg2.png" class="Ujjain_FamousPujas_imgs galleryimg"
+                                        alt="" srcset="">
+                                    <div class="Famous_Location_pujaname_div">
+
+                                        <span class="Famous_Temple_name">1 Mukhi Rudraksha</span>
+
+
+
+                                    </div>
+                                    <div class="price-div">
+                                        <span class="shopping-price">&#8377; 1060</span>
+                                        <div class="shop-button">
+                                            <input type="button" class="shopping-down-btn" value="Order Now">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 7" style="width: 166px; margin-right: 30px;">
+                                <div class="Ujjain_FamousPujas_div gallerydivs_contents">
+                                    <img src="../Images/shoppingimg3.png" class="Ujjain_FamousPujas_imgs galleryimg"
+                                        alt="" srcset="">
+                                    <div class="Famous_Location_pujaname_div">
+
+                                        <span class="Famous_Temple_name">Varalakshmi Gold Chain</span>
+
+
+
+                                    </div>
+                                    <div class="price-div">
+                                        <span class="shopping-price">&#8377; 1999</span>
+                                        <div class="shop-button">
+                                            <input type="button" class="shopping-down-btn" value="Order Now">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+
+                            <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 7" style="width: 166px; margin-right: 30px;">
+                                <div class="Ujjain_FamousPujas_div gallerydivs_contents">
+                                    <img src="../Images/shoppingimg4.png" class="Ujjain_FamousPujas_imgs galleryimg"
+                                        alt="" srcset="">
+                                    <div class="Famous_Location_pujaname_div">
+
+                                        <span class="Famous_Temple_name">Aadita Gold-Plated Chain</span>
+
+
+
+                                    </div>
+                                    <div class="price-div">
+                                        <span class="shopping-price">&#8377; 1989</span>
+                                        <div class="shop-button">
+                                            <input type="button" class="shopping-down-btn" value="Order Now">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 7" style="width: 166px; margin-right: 30px;">
+                                <div class="Ujjain_FamousPujas_div gallerydivs_contents">
+                                    <img src="../Images/shoppingimg5.png" class="Ujjain_FamousPujas_imgs galleryimg"
+                                        alt="" srcset="">
+                                    <div class="Famous_Location_pujaname_div">
+
+                                        <span class="Famous_Temple_name">Earrings-Colour Stones</span>
+
+
+
+                                    </div>
+                                    <div class="price-div">
+                                        <span class="shopping-price">&#8377; 200</span>
+                                        <div class="shop-button">
+                                            <input type="button" class="shopping-down-btn" value="Order Now">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 7" style="width: 166px; margin-right: 30px;"></div>
+                            <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 7" style="width: 166px; margin-right: 30px;"></div>
+                            <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 7" style="width: 166px; margin-right: 30px;"></div>
+                            <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 7" style="width: 166px; margin-right: 30px;"></div>
+
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                            <!-- <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 7"
                                 style="width: 166px; margin-right: 30px;">
                                 <div class="Ujjain_FamousPujas_div gallerydivs_contents">
                                     <img src="../Images/image 2.PNG" class="Ujjain_FamousPujas_imgs galleryimg" alt=""
@@ -2495,10 +2698,10 @@
                                         <span class="Famous_Temple_name">Mahakaleshwar Temple</span>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
 
-                            <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 7"
+                            <!-- <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 7"
                                 style="width: 166px; margin-right: 30px;">
                                 <div class="Ujjain_FamousPujas_div gallerydivs_contents">
                                     <img src="../Images/image 1.PNG" class="Ujjain_FamousPujas_imgs galleryimg" alt=""
@@ -2508,56 +2711,11 @@
                                         <span class="Famous_Temple_name">Ram Ghat</span>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
-                            <div class="swiper-slide" role="group" aria-label="3 / 7"
-                                style="width: 166px; margin-right: 30px;">
-                                <div class="Ujjain_FamousPujas_div gallerydivs_contents">
-                                    <img src="../Images/image 3.PNG" class="Ujjain_FamousPujas_imgs galleryimg" alt=""
-                                        srcset="">
-                                    <div class="Famous_Location_pujaname_div">
-                                        <img src="../Images/Location icon.png" class="Famous_location_img" alt="">
-                                        <span class="Famous_Temple_name">Kaliadeh Palace</span>
-                                    </div>
-                                </div>
-                            </div>
+                         
 
-                            <div class="swiper-slide" role="group" aria-label="4 / 7"
-                                style="width: 166px; margin-right: 30px;">
-                                <div class="Ujjain_FamousPujas_div gallerydivs_contents">
-                                    <img src="../Images/image 4.PNG" class="Ujjain_FamousPujas_imgs galleryimg" alt=""
-                                        srcset="">
-                                    <div class="Famous_Location_pujaname_div">
-                                        <img src="../Images/Location icon.png" class="Famous_location_img" alt="">
-                                        <span class="Famous_Temple_name">Shree Kal Bhairav Temple</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide" role="group" aria-label="5 / 7"
-                                style="width: 166px; margin-right: 30px;">
-                                <div class="Ujjain_FamousPujas_div gallerydivs_contents">
-                                    <img src="../Images/image 5.PNG" class="Ujjain_FamousPujas_imgs galleryimg" alt=""
-                                        srcset="">
-                                    <div class="Famous_Location_pujaname_div">
-                                        <img src="../Images/Location icon.png" class="Famous_location_img" alt="">
-                                        <span class="Famous_Temple_name">Ved Shala</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 7"
-                                style="width: 166px; margin-right: 30px;">
-                                <div class="Ujjain_FamousPujas_div gallerydivs_contents">
-                                    <img src="../Images/image 2.PNG" class="Ujjain_FamousPujas_imgs galleryimg" alt=""
-                                        srcset="">
-                                    <div class="Famous_Location_pujaname_div">
-                                        <img src="../Images/Location icon.png" class="Famous_location_img" alt="">
-                                        <span class="Famous_Temple_name">Mahakaleshwar Temple</span>
-                                    </div>
-                                </div>
-                            </div>
-
+                           
 
 
 
@@ -2580,7 +2738,8 @@
                 </div>
             </section> <!-- Gallery slides ends here -->
 
-
+            
+           
 
 
 <!-- 
@@ -2673,7 +2832,13 @@
 
         <main id="AboutUjjain_main">
 
-            <img id="about_ujjain_logo" src="../Images/ujjain logo.jpg" alt="" srcset="">
+            <img id="about_ujjain_logo" src="../Images/ujjain-darshan.png" alt="" srcset="">
+
+           
+
+
+
+
 
             <!-- <section id="home_top_rated_sec">
 

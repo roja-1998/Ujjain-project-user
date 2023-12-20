@@ -1,11 +1,14 @@
 
 
 body{
-    font-family: 'Roboto';
+    /* font-family: 'Roboto'; */
+    font-family: Inter,sans-serif !important;
+
 }
 
 #main-sec {
     display: flex;
+    position: relative;
 }
 
 #image-sec {
@@ -14,6 +17,33 @@ body{
     margin-top: 20px;
     margin-left: 60px;
 }
+
+
+input[type="number"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+.loader {
+    display: none;
+    top: 303px;
+    left: 900px;
+    position: absolute;
+    margin-top: 40px;
+    margin-right: 50px;
+    border: 3px solid #EAF0F6;
+    border-radius: 50%;
+    border-top: 3px solid #FF5F1F;
+    width: 25px;
+    height: 25px;
+    animation: spinner 4s linear infinite;
+    z-index: 20;
+}
+  
+@keyframes spinner {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+
 
 
 
@@ -130,6 +160,7 @@ body{
 
 #ujjain-dharshan {
     font-size: 50px;
+    font-family: Aventi;
     font-weight: bolder;
     color: #ff5c02;
     margin-top: 0px;
@@ -212,7 +243,17 @@ body{
     height: 20px;
     margin-top: 15px;
 }
-
+.mobile_no_inputs{
+    width: 300px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    border: solid 1px #ff5c02;
+    border-radius: 5px;
+    color: #ff5c02;
+    height: 20px;
+    margin-top: 15px;
+}
 #Password {
     width: 300px;
     padding-top: 10px;

@@ -4,15 +4,23 @@
 
 body {
     margin: 0;
-    font-family: 'Roboto';
+    /* font-family: 'Roboto'; */
+    font-family: Inter, sans-serif !important;
     height: 750px;
     position: relative;
 
 }
 
+
+
 ol{
-    font-family: sans-serif;
+    font-family: Inter, sans-serif ;
 }
+
+input[type="number"]::-webkit-inner-spin-button {
+    display: none;
+}
+
 
 
 /* img  Loader  while fetching data from API CSS...     */
@@ -33,21 +41,27 @@ ol{
     height: 8px;
     position: relative;
   } */
-/* .loader {
+
+ .loader {
+    display: none;
+    top: 250px;
+    left: 600px;
+    position: absolute;
     margin-top: 40px;
     margin-right: 50px;
-    border: 20px solid #EAF0F6;
+    border: 6px solid #EAF0F6;
     border-radius: 50%;
-    border-top: 20px solid #FF5F1F;
-    width: 50px;
-    height: 50px;
+    border-top: 6px solid #FF5F1F;
+    width: 40px;
+    height: 40px;
     animation: spinner 4s linear infinite;
+    z-index: 20;
 }
   
 @keyframes spinner {
 0% { transform: rotate(0deg); }
 100% { transform: rotate(360deg); }
-} */
+} 
 
 .zoom-in-zoom-out {
     margin: 24px;
@@ -196,11 +210,12 @@ ol{
 }
 
 #ujjain-logo {
-    width: 145px;
+    width: 175px;
+    margin-left: 8px;
     height: 65px;
     margin-top: 20px;
     margin-bottom: 10px;
-    margin-left: 20px;
+  
 
 }
 
@@ -224,9 +239,9 @@ ol{
 
 #profile_view_main {
 
-
+position: relative;
     width: 1170px;
-    height: 700px;
+    height: 1040px;
     margin-top: 30px;
     margin-left: 30px;
   
@@ -234,7 +249,7 @@ ol{
 
 #profile_div {
     width: 350px;
-    height: 650px;
+    height: 950px;
     padding: 15px;
     padding-top: 0px;
     margin-right: 20px;
@@ -251,6 +266,7 @@ ol{
      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
     background-color: #fff; 
     margin-bottom: 20px;
+    position: relative;
 }
 #profile_h3 {
     display: inline;
@@ -263,7 +279,21 @@ ol{
     width: 16px;
     cursor: pointer;
 }
+#Update_btn{
+    width: 73.66666599999999px;
 
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 7px;
+    display: none;
+    position: absolute;
+    top: -50px;
+    left: 136px;
+    color: #FF5F1F;
+    background-color: #fff;
+    border: #FF5F1F solid 1px;
+    cursor: pointer;
+}
 #viewProfile_img_logo {
     width: 100px;
     margin-left: 0px;
@@ -282,6 +312,16 @@ ol{
     text-align: center;
     margin-top: 0px;
     margin-bottom: 0px;
+    border: none;
+    font-weight: bold;
+}
+#userMobile_viewprofile{
+    width: 120px;
+    font-weight: 600;
+    font-size: 17px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border: none;
 }
 
 #phone_icon {
@@ -374,6 +414,9 @@ ol{
     justify-content: space-around;
 
 }
+#shopdiv_parent{
+    margin-top: 20px;
+}
 
 #profile_div2 {
     display: flex;
@@ -410,6 +453,7 @@ ol{
     width: 280px;
     overflow-x: hidden;
     overflow-y: scroll;
+    margin-left: 20px;
 }
 .All_bookings_scroll::-webkit-scrollbar{    display: none;  }
 .child_divs {
@@ -481,11 +525,13 @@ ol{
 }
 .parent_taxi_bookings_div{
     margin-left: 18px;
+    position: relative;
 }
 .F_T_div{
     display: flex;
     height: 17px;
     width: 230px;
+    margin-top: 10px;
 }
 .p_tag_from_to{
     width: 50px;
@@ -494,6 +540,9 @@ ol{
     font-size: 12px;
 }
 .taxiprice_in_vieprofile{
+    position: absolute;
+    top: 20px;
+    left: 31px;
     margin-top: 4px;
     margin-bottom: 0px;
     margin-left: 164px;
@@ -511,6 +560,9 @@ ol{
 /* .update-profile-heading01 {
    
 } */
+#can_updatebtn_div{
+    display: flex;
+}
 #update_btn{
     width: 200px;
     height: 35px;
@@ -522,10 +574,24 @@ ol{
     padding-bottom: 20px;
     cursor: pointer;
     font-size: 20px;
-    margin-left: 50px;
+    margin-left: 30px;
     margin-top: 10px;
 }
+#cancel_profile_btn{
 
+    width: 200px;
+    height: 35px;
+    background-color:  white;
+    color:  #ff5c02;
+    border: solid 1px #ff5c02;
+    border-radius: 5px;
+    padding-top: 6px;
+    padding-bottom: 20px;
+    cursor: pointer;
+    font-size: 20px;
+  
+    margin-top: 10px;
+}
 .update_form {
     margin-left: 16px;
     margin-top: 45px;
@@ -534,7 +600,7 @@ ol{
     border: solid 1px #FF5F1F;
     border-radius: 5px;
     height: 40px;
-    width: 310px;
+    width: 402px;
     font-size: 18px;
     font-family: sans-serif;
     font-weight: 500;
@@ -547,7 +613,7 @@ ol{
  
 .update-name01::placeholder{
     color: #FF5F1F;
-    padding-left: 10px;
+    /* padding-left: 10px; */
     font-size: 14px;
 }
 
@@ -783,7 +849,7 @@ ol{
     padding-bottom: 6px;
     padding-right: 10px;
     margin-top: 12px;
-    margin-left: 30px;
+ float: inline-end;
     cursor: pointer;
 }
 #hotel_btn:hover{
@@ -1010,26 +1076,53 @@ ol{
     }
 
     100% {
-        transform: translateX(calc(-250px * 5));
+        transform: translateX(calc(-250px * 5));    
     }
 }
 
 #Book_hotel_name {
     display: inline-block;
-    width: 420px;
-    font-size: 30px;
+    /* width: 420px; */
+    font-size: 40px;
     color: #ff5c02;
     font-weight: bold;
     margin-top: 0px;
-    margin-right: 280px;
+    margin-right: 10px;
     margin-left: 30px;
+    font-style: italic;
+}
+#Hotel_type_hotelbkg{
+    color: #000;
+    font-size: 20px;
+    margin-right: 20px;
+    display: inline-block;
+    width: 80px;
+    height: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-right: solid;
+    border-left: solid;
 }
 
+#Hotel_type_hotelbkgin_popup{
+
+    color: #000;
+    font-size: 15px;
+    margin-right: 20px;
+    display: inline-block;
+    width: 80px;
+    height: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    /* border-right: solid;
+    border-left: solid; */
+
+}
 #Book_hotel_price {
     color: #000;
-    font-size: 40px;
+    font-size: 23px;
     font-weight: bold;
-    float: inline-end;
+    /* float: inline-end; */
 }
 
 #Book_hotel_facilities {
@@ -1094,6 +1187,16 @@ ol{
     
     font-size: xx-large;
     float: inline-end;
+}
+
+.error_msg_inHome{
+    display: none;
+    color: red;
+    font-weight: 600;
+}
+#hotel_save_eror{
+    
+    margin-top: 0px;
 }
 .HotelBooking_popup_div {
 
@@ -1168,7 +1271,11 @@ ol{
     font-weight: 600;
     margin-left: 2px;
 }
-
+.hotel_type{
+    margin-left: 92px;
+    color: #FF5F1F;
+    font-size: large;
+}
 .popup_des_img {
     position: relative;
     width: 36px;
@@ -1218,7 +1325,7 @@ ol{
     background-color: #ff5c02;
     color: #fff;
     margin-left: 35px;
-    margin-top: 15px;
+    margin-top: 30px;
     border-radius: 10px;
     cursor: pointer;
 }
@@ -1298,7 +1405,7 @@ ol{
 .booking_sucessfull_img {
     width: 120px;
     margin-left: 170px;
-    margin-top: 5px;
+    margin-top: 75px;
 }
 
 .sucessful_msg {
@@ -1317,7 +1424,7 @@ ol{
 .sucessful_ins {
     margin-left: 15px;
     margin-bottom: 0px;
-    margin-top: 10px;
+    margin-top: 50px;
 }
 
 .sucessful_ol {
@@ -1670,6 +1777,7 @@ ol{
 /* puja swiper down */
 
 #swiper_puja_down {
+    width: 1170px !important;
     left: 10px;
     margin-left: auto;
     margin-right: auto;
@@ -1719,7 +1827,9 @@ ol{
 }
 
 
-
+.ujjainFamous_puja{
+    width: 200px !important;
+}
 
 .Ujjain_FamousPujas_divs {
     display: flex;
@@ -1770,6 +1880,7 @@ ol{
     font-weight: bold;
     padding-top: 5px;
     padding-left: 5px;
+    color: #ff5c02;
 }
 
 .Famous_puja_price {
@@ -2259,6 +2370,7 @@ ol{
 #ujjainConfirmation_popupdiv {
     width: 420px;
     height: 552px;
+    padding: 10px;
     position: absolute;
     top: -350px;
     right: 100px;
@@ -2465,6 +2577,7 @@ ol{
 #omkarConfirmation_popupdiv {
     width: 420px;
     height: 568px;
+    padding-right: 10px;
     position: absolute;
     top: -350px;
     right: 100px;
@@ -2674,6 +2787,7 @@ ol{
 #maabagConfirmation_popupdiv {
     width: 420px;
     height: 552px;
+    padding: 10px;
     position: absolute;
     top: -350px;
     right: 100px;
@@ -2885,10 +2999,12 @@ ol{
 }
 .taxiconfirmsucimg{
     margin-left: 150px;
-    margin-top: 28px;
+    margin-top: 115px;
 }
 .taxiconfirmsucmsg{
     margin-left: 15px;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
 .taxiconfir_h3{
     margin-bottom: 10px;
@@ -3189,8 +3305,9 @@ ol{
     margin-bottom: 8px;
 }
 .gallerydivs_contents{
-    height: 200px;
-    width: 180px;
+    height: 240px;
+    width: 185px;
+    padding-left: 5px;
 }
 #About_gallery{
     height: 300px;
@@ -3336,6 +3453,7 @@ ol{
     top: 85px;
     right: 100px;
     z-index: 12;
+    padding: 10px;
     border-radius: 15px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
     background-color: #fff;
@@ -3431,7 +3549,7 @@ ol{
 .shoppingPackage_totalprice {
     font-size: 30px;
     font-weight: 600;
-    margin-left: 215px;
+    float: inline-end;
  
 }
  
@@ -3447,7 +3565,7 @@ ol{
  
 #shoppingConfirmation_popup_div{
     width: 420px;
-    height: 573px;
+    height: 638px;
     position: absolute;
     top: 81px;
     right: 100px;
@@ -3618,4 +3736,33 @@ span {
  
 
 
+/* shopping down css */
+
+
+.shopping-price{
+    margin-top: 15px;
+    margin-left: 10px;
+    font-weight: bold;
+    font-family: 'Roboto';
+    display: flex;
+ 
+}
+ 
+.shopping-down-btn{
+    width:70px;
+    height:25px;
+    margin-top:-20px;
+    margin-left:100px;
+    display: flex;
+    font-size: 12px;
+    color:#ff5c02 ;
+    background-color:white;
+    border: solid 1px #ff5c02;
+    border-radius: 4px;
+}
+.shopping-down-btn:hover{
+ 
+    background-color: #ff5c02;
+    color: #ffffff;
+}
 
