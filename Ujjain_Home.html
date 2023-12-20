@@ -1,0 +1,3161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+
+    <link rel="icon" type="image/PNG" href="../Images/logo_ujjain.PNG">
+    <link rel="stylesheet" href="../CSS/Ujjain home.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Ujjain home</title>
+    <script src="../Java Script/Home_script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+</head>
+
+
+<body>
+
+
+
+
+    <!--  Navbar section -->
+
+    <nav id="Dashboard-nav">
+        <div id="Dashsun">
+            <span class="nav-sun"> Fri 15 Dec</span> <br>
+            <span class="nav-sun1"> <span id="datetime"></span> </span>
+        </div>
+        <div id="Dashbhanu">
+            <div id="viewprofile_div" onclick="viewProfile()">
+
+                <p class="nav-sun" id="Login_User_Name"> </p> 
+                <p class="nav-sun view_txt_sun" id="viewprofile">View profile > </p>
+
+            </div>
+
+             <img id="dashboardprofilelogo" src="../Images/profile logo.PNG" alt=""> 
+
+
+            <a href="index.html">
+                <img id="logouticon" onclick="Logout()" src="../Images/logouticon.png" alt="" srcset="">
+ 
+            </a>
+        </div>
+    </nav>
+
+
+                    <script type="text/javascript">
+
+                        function preventBack() {
+                            window.history.forward();  
+                        }    
+                        setTimeout("preventBack()", 0);
+                        window.onunload = function () { null };
+
+                    </script>
+
+
+    <!-- aside and main tags parent-section -->
+    <section id="aside_main_parentsection">
+        <!-- aside section starts here......-->
+        <aside id="sidebar">
+            <img id="ujjain-logo" src="../Images/ujjain-darshan.png" alt="">
+
+            <div id="home-div" onclick="Home()">Home </div>
+            <div id="hotel-div" class="aside_content_divs" onclick="hotelBooking()">Hotel Booking </div>
+            <div id="pujabooking-div" class="aside_content_divs" onclick="pujaBooking()">Puja Booking </div>
+            <div id="UjjainDarshan-div" class="aside_content_divs" onclick="UjjainDarshan()">Ujjain Darshan </div>
+            <div id="Omkareshwar-div" class="aside_content_divs" onclick="Omkareshwar()">Omkareshwar Tour </div>
+            <div id="MaaBaglamukhi-div" class="aside_content_divs" onclick="MaaBaglamukhi()">Maa Baglamukhi Tour</div>
+            <div id="TaxiServices-div" class="aside_content_divs" onclick="TaxiServices()">Taxi Services</div>
+            <div id="AirportRides-div" class="aside_content_divs" onclick="AirportRides()">Airport Rides</div>
+            <div id="shopping-div" class="aside_content_divs" onclick="Shopping()">Shopping </div>
+            <div id="AboutUjjain-div" class="aside_content_divs" onclick="AboutUjjain()">About Ujjain</div>
+
+
+
+        </aside>
+
+        <!--   view  Profile main content  starts from here.......-->
+
+        <main id="profile_view_main" style="display: none;">
+            <div id="profile_contents"></div>
+            <div class="loader" id="profile_loader"></div>                        <!--  Loader in view profile  -->
+
+            <div id="profile_div">
+                
+
+                <div id="div_top_profile">
+    
+                    <h3 id="profile_h3">Profile</h3>
+                    <img src="../Images/combined-shape.png" onclick="Edit_profileIcon()" id="profile_edit_icon" alt=""> <br>
+                    <img src="../Images/viewProfile logo.png" id="viewProfile_img_logo" alt="" srcset=""> 
+
+                        <div class="name_no_div">  
+                            <form action="" id="profile_update_form">
+
+                                <input onkeydown="return /[a-z]/i.test(event.key)" id="username_viewprofile" readonly value="chaithaya" name="username_update"></input>
+                                <img src="../Images/phone icon.png" id="phone_icon" alt="" srcset="">
+
+                                <span id="userNo_viewprofile">+91
+                                    <input type="number"  min="1000000000" maxlength="10" readonly  id="userMobile_viewprofile" value="8100000000" name="userMB_update" ></input>
+                                    <input type="submit" onclick="userUpdateBtn()" id="Update_btn">
+                            
+                                  </span>
+                            </form>   <br>
+                        </div>  
+
+                
+
+                        <!-- <img src="../Images/Email icon.png" id="email_icon" alt="" srcset="">
+                        <span id="userEmail_viewprofile"></span> -->
+        <!-- 
+                        <div id="div1_profile">
+                            <img src="../Images/payments icon.png" class="profile_icon" alt="" srcset="">
+                            <span class="pnames">Payments</span>
+
+                            <div id="P_H">
+                                <div>
+                                    <p class="num_div1">2350</p>
+                                    <p class="text_div1">By Cash</p>
+                                </div>
+                                <div id="H">
+                                    <p class="num_div1">1800</p>
+                                    <p class="text_div1">Online</p>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <div id="div2_profile">
+                            <img src="../Images/History icon.png" class="profile_icon" alt="">
+                            <span class="pnames">History</span>
+                            <div id="H_P">
+                                <div>
+                                    <p class="num_div1">12</p>
+                                    <p class="text_div1">Hotels</p>
+                                </div>
+                                <div>
+                                    <p class="num_div1">18</p>
+                                    <p class="text_div1">Pujas</p>
+                                </div>
+                                <div>
+                                    <p class="num_div1">18</p>
+                                    <p class="text_div1">Places</p>
+                                </div>
+                                <div>
+                                    <p class="num_div1">12</p>
+                                    <p class="text_div1">Rides</p>
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+
+                <div class="profile_div2_childs shop_pro">
+
+                    <h3 class="childs_name">Airport Rides</h3>
+                        <div class="All_bookings_scroll " id="AirportBook_inViewprofile">      
+                        </div>
+
+                </div>
+
+                <div class="profile_div2_childs shop_pro" id="shopdiv_parent">
+
+                    <h3 class="childs_name">Shopping</h3>
+                        <div class="All_bookings_scroll " id="ShoppingBKG_inViewprofile">      
+                        </div>
+
+                </div>
+
+
+
+
+
+            </div>
+
+            <div id="profile_div2">
+
+                <div class="profile_div2_childs">
+                    <h3 class="childs_name">Hotels</h3>
+                        <div class="All_bookings_scroll " id="hotelbook_inViewprofile"> 
+                      
+<!-- 
+                            <div class="child_divs hotel_booking_divs">
+                                <div><img src="../Images/hotel building 2.png" class="hotel_build_imgs" alt=""></div>
+                                <div>
+                                    <h1 class="hotel_names"> Sri Siva Ganga Bhakthi Nivas</h1>
+                                    <p class="price"> <span class="currency_symbol">&#8377;</span> 250 </p>
+                                </div>
+                            </div>
+                            -->
+                        </div>
+ 
+
+
+                </div>
+
+
+                <div class="profile_div2_childs">
+                    <h3 class="childs_name">Visited Places</h3>
+
+                    <div class="All_bookings_scroll" id="UjjainBookings_inViewProfile"> 
+                        
+                            
+                            <!-- <div class="child_divs">
+                                <div><img src="../Images/image 2.PNG" class="visited_imgs" alt=""></div>
+                                <div>
+                                    <h1 class="hotel_names"> Mahakaleshwar Temple</h1>
+                                    <p class="price"> <span class="currency_symbol">&#8377;</span> 250 </p>
+                                </div>
+                            </div>
+                            <div class="child_divs">
+                                <div><img src="../Images/image 3.PNG" class="visited_imgs" alt=""></div>
+                                <div>
+                                    <h1 class="hotel_names"> Kaliadeh Palace</h1>
+                                    <p class="price"> <span class="currency_symbol">&#8377;</span> 250 </p>
+                                </div>
+                            </div> -->
+
+                    </div>
+
+
+
+                </div>
+                <div class="profile_div2_childs">
+                    <h3 class="childs_name">Attended Pujas</h3>
+
+                        <div class="All_bookings_scroll " id="Puja_Bookings_inViewProfile"> 
+
+                              
+                                <!-- <div class="child_divs">
+                                    <div><img src="../Images/Kaalsarp Dosha Puja img.png" class="visited_imgs" alt=""></div>
+                                    <div>
+                                        <h1 class="puja_names">Kaalsarp Dosha Puja</h1>
+                                        <img src="../Images/Location icon.png" class="Loc_imgs" alt="">
+                                        <span class="T_names">Shree Kal Bhairav Temple</span>
+                                        <span class="price"> <span class="currency_symbol">&#8377;</span> 250 </span>
+                                    </div>
+                                </div>
+                                <div class="child_divs">
+                                    <div><img src="../Images/Rudra Abhisheka Puja img.png" class="visited_imgs" alt=""></div>
+                                    <div>
+                                        <h1 class="puja_names">Rudra Abhisheka Puja</h1>
+                                        <img src="../Images/Location icon.png" class="Loc_imgs" alt="">
+                                        <span class="T_names">Mahakaleshwar Temple</span>
+                                        <span class="price"> <span class="currency_symbol">&#8377;</span> 250 </span>
+                                    </div>
+                                </div>
+                                <div class="child_divs">
+                                    <div><img src="../Images/Rudra Abhisheka Puja img.png" class="visited_imgs" alt=""></div>
+                                    <div>
+                                        <h1 class="puja_names">Rudra Abhisheka Puja</h1>
+                                        <img src="../Images/Location icon.png" class="Loc_imgs" alt="">
+                                        <span class="T_names">Mahakaleshwar Temple</span>
+                                        <span class="price"> <span class="currency_symbol">&#8377;</span> 250 </span>
+                                    </div>
+                                </div> -->
+
+
+                        </div>
+
+
+
+                </div>
+
+
+                <div class="profile_div2_childs">
+                    <h3 class="childs_name">Taxi Rides</h3>
+
+                    <div class="All_bookings_scroll" id="TaxiBookings_viewProfile"> 
+
+                            <!-- <div class="child_divs taxi_bookings">
+                                <div class="parent_taxi_bookings_div">
+                                   <div class="F_T_div"> <p class="p_tag_from_to">From :</p> <span class="hotel_names">Ram Ghat</span>  </div> 
+                                   <div class="F_T_div">  <p class="p_tag_from_to">To :</p> <span class="hotel_names">Ram Ghat</span> </div>
+                                    <p class="price taxiprice_in_vieprofile"> <span class="currency_symbol">&#8377;</span> 250 </p>
+                                </div>
+                            </div> -->
+
+
+                            <!-- <div class="child_divs">
+                                <div><img src="../Images/image 2.PNG" class="visited_imgs" alt=""></div>
+                                <div>
+                                    <h1 class="hotel_names"> Mahakaleshwar Temple</h1>
+                                    <p class="price"> <span class="currency_symbol">&#8377;</span> 250 </p>
+                                </div>
+                            </div>
+                            <div class="child_divs">
+                                <div><img src="../Images/image 3.PNG" class="visited_imgs" alt=""></div>
+                                <div>
+                                    <h1 class="hotel_names">Kaliadeh Palace</h1>
+                                    <p class="price"> <span class="currency_symbol">&#8377;</span> 250 </p>
+                                </div>
+                            </div>
+                            <div class="child_divs">
+                                <div><img src="../Images/image 3.PNG" class="visited_imgs" alt=""></div>
+                                <div>
+                                    <h1 class="hotel_names">Kaliadeh Palace</h1>
+                                    <p class="price"> <span class="currency_symbol">&#8377;</span> 250 </p>
+                                </div>
+                            </div> -->
+
+                    </div>       
+
+                </div>
+            </div>
+
+
+            
+
+
+
+
+            
+        </main>
+
+        <!----------------------------- upadate profile ------------------------->
+ 
+ 
+        <!-- <main class="profile-update-section" id="profile-update-container" style="display: none;">
+            <h1 class="update-profile-heading01">Update Profile Here:</h1>
+
+            <form action="" class="update_form" id="form-100">
+                    <input onkeydown="return /[a-z]/i.test(event.key)"  name="name" placeholder="Your Name" class="update-name01" id="update-name10"><br>
+                    <input type="email" name="email" placeholder="Email Address" class="update-name01" id="update-email02"><br>
+                    <input type="number" onkeyup="myUpdate_user()" name="mobileNum" placeholder="Mobile Number" min="1000000000" maxlength="10" class="update-name01" id="update-number03"><br>
+                    <input type="password" name="password" placeholder="Password" class="update-name01" id="update-password04"><br>
+                   
+                    <p id="Update_error_message" class="error_msg_inHome" >Error message</p>
+
+                    <div id="can_updatebtn_div">
+                        <input type="button" onclick="Cancel_UpdateBtn()" value="Cancel" id="cancel_profile_btn"/>
+                        <input type="submit"  value="Save Changes" id="update_btn" onclick="submiteApiCall()">
+                    </div>
+       
+            </form>
+       
+        </main> -->
+
+
+
+
+
+
+
+        <!-- Home main content starts here...... -->
+
+        <main id="Home_main">
+
+            <section id="our_hotels_sec">
+                <h3 id="our_hotels_h3">Our Hotels</h3>
+
+                <div id="our_hotels_div">
+
+                    <div #swiperRef="" class="swiper mySwiper" id="swiper_up">
+                        <div class="swiper-wrapper our_hotels_api" id="swiper-wrapper_up">
+
+                            <div class="swiper-slide homeslides"></div>
+                            <div class="swiper-slide homeslides"></div>
+                            <div class="swiper-slide homeslides"></div>
+                            <div class="swiper-slide homeslides"></div>
+                            <div class="swiper-slide homeslides"></div>
+                            <div class="swiper-slide homeslides"></div>
+                            <div class="swiper-slide homeslides"></div>
+                            <div class="swiper-slide homeslides"></div>
+
+                        </div>
+
+                    </div>
+                    <div class="next_prev_btn_up_div">
+                        <div class="swiper-button-next" id="swiper-button-next_up" onclick="swiperBtn_up()"></div>
+                        <div class="swiper-button-prev hotelbooking_prev_down" id="prev_down_hotelBooking"></div>
+                        <!-- <div class="swiper-pagination"></div> -->
+                    </div>
+                </div>
+
+                    <!--    img  Loader  while fetching data from API...    -->
+
+                    <div id="home_our_hotel_loader" class="Top_loader ">
+                        <!-- <div class="loader"></div> -->
+                        <img class="Loader_img zoom-in-zoom-out" src="../Images/ujjain_logo_png.png" alt="">
+                       
+                    </div>
+
+      
+            </section>
+
+
+
+            <section id="home_top_rated_sec">
+
+                <h3 style="margin-top: 0%;">Top Visited Places</h3>
+
+                <div id="home_top_rated_divs">
+                    <div #swiperRef="" class="swiper mySwiper" id="swiper_down">
+                        <div class="swiper-wrapper" id="swiper-wrapper_down">
+
+                            
+
+                            <div class="swiper-slide home_slides_down" ></div>
+                            <div class="swiper-slide home_slides_down"></div>
+                            <div class="swiper-slide home_slides_down"></div>
+                            <div class="swiper-slide home_slides_down"></div>
+                            <div class="swiper-slide home_slides_down"></div>
+
+                            <!-- <div class="swiper-slide home_slides_down">
+                                <div id="home_top_rated_div">
+                                    <img src="../Images/image 2.PNG" class="home_top_img1" alt="image1">
+                                    <div class="top_visited_rating_div">
+                                        <i class="fa fa-star checked" id="icon"></i>
+                                        <span class="top_visited_rating_span">4.5</span>
+                                    </div>
+                                    <p class="top_visited_hotel_name">Ram Ghat</p>
+                                    <img src="../Images/destination icon.PNG" class="destination-image"
+                                        alt="destination-image">
+                                    <span class="top-visited-km">2.3 km</span>
+                                    <input type="button" class="top_visited_btn" value="Book a Guide">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide home_slides_down">
+                                <div id="home_top_rated_div">
+                                    <img src="../Images/image 3.PNG" class="home_top_img1" alt="image1">
+                                    <div class="top_visited_rating_div">
+                                        <i class="fa fa-star checked" id="icon"></i>
+                                        <span class="top_visited_rating_span">4.5</span>
+                                    </div>
+                                    <p class="top_visited_hotel_name">Ram Ghat</p>
+                                    <img src="../Images/destination icon.PNG" class="destination-image"
+                                        alt="destination-image">
+                                    <span class="top-visited-km">2.3 km</span>
+                                    <input type="button" class="top_visited_btn" value="Book a Guide">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide home_slides_down">
+                                <div id="home_top_rated_div">
+                                    <img src="../Images/image 4.PNG" class="home_top_img1" alt="image1">
+                                    <div class="top_visited_rating_div">
+                                        <i class="fa fa-star checked" id="icon"></i>
+                                        <span class="top_visited_rating_span">4.5</span>
+                                    </div>
+                                    <p class="top_visited_hotel_name">Ram Ghat</p>
+                                    <img src="../Images/destination icon.PNG" class="destination-image"
+                                        alt="destination-image">
+                                    <span class="top-visited-km">2.3 km</span>
+                                    <input type="button" class="top_visited_btn" value="Book a Guide">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide home_slides_down">
+                                <div id="home_top_rated_div">
+                                    <img src="../Images/image 5.PNG" class="home_top_img1" alt="image1">
+                                    <div class="top_visited_rating_div">
+                                        <i class="fa fa-star checked" id="icon"></i>
+                                        <span class="top_visited_rating_span">4.5</span>
+                                    </div>
+                                    <p class="top_visited_hotel_name">Ram Ghat</p>
+                                    <img src="../Images/destination icon.PNG" class="destination-image"
+                                        alt="destination-image">
+                                    <span class="top-visited-km">2.3 km</span>
+                                    <input type="button" class="top_visited_btn" value="Book a Guide">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide home_slides_down">
+                                <div id="home_top_rated_div">
+                                    <img src="../Images/image 1.PNG" class="home_top_img1" alt="image1">
+                                    <div class="top_visited_rating_div">
+                                        <i class="fa fa-star checked" id="icon"></i>
+                                        <span class="top_visited_rating_span">4.5</span>
+                                    </div>
+                                    <p class="top_visited_hotel_name">Ram Ghat</p>
+                                    <img src="../Images/destination icon.PNG" class="destination-image"
+                                        alt="destination-image">
+                                    <span class="top-visited-km">2.3 km</span>
+                                    <input type="button" id="top_visited_btn" value="Book a Guide">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide home_slides_down">
+                                <div id="home_top_rated_div">
+                                    <img src="../Images/image 2.PNG" class="home_top_img1" alt="image1">
+                                    <div class="top_visited_rating_div">
+                                        <i class="fa fa-star checked" id="icon"></i>
+                                        <span class="top_visited_rating_span">4.5</span>
+                                    </div>
+                                    <p class="top_visited_hotel_name">Ram Ghat</p>
+                                    <img src="../Images/destination icon.PNG" class="destination-image"
+                                        alt="destination-image">
+                                    <span class="top-visited-km">2.3 km</span>
+                                    <input type="button" class="top_visited_btn" value="Book a Guide">
+                                </div>
+                            </div> -->
+
+                            <div class="swiper-slide home_slides_down"> </div>
+                            <div class="swiper-slide home_slides_down"> </div>
+
+
+                        </div>
+
+
+                    </div>
+                    <div class="next_prev_btn_down_div">
+                        <div class="swiper-button-next" id="swiper-button-next_down" onclick="swiperBtn_down()"></div>
+                        <div class="swiper-button-prev" id="swiper-button-prev_down"> </div>
+
+                    </div>
+
+
+                </div>
+
+                        <!--    img  Loader  while fetching data from API...    -->
+
+                        <div id="home_TopVisitedplaces_loader" class="bottum_loader ">                        
+                            <img class="Loader_img_bottum zoom-in-zoom-out" src="../Images/ujjain_logo_png.png" alt="">
+                        </div>
+
+            </section>
+
+
+
+
+
+
+
+
+
+
+        </main>
+        <!--            Hotel Booking main starts here......            -->
+
+        <main id="HotelBooking_main" style="display: none;">
+
+            <section id="hotelBooking_book_hotel_sec">
+                <h3>Book Hotel</h3>
+                <div class="slider">
+                    <div class="slider-track">
+
+                        <div class="slide">
+                            <img class="slide_imgs" src="../Images/hotel img 1.PNG" alt="">
+                            <img class="slide_imgs" src="../Images/hotel img 2.PNG" alt="">
+                            <img class="slide_imgs" src="../Images/hotel img 3.PNG" alt="">
+                            <img class="slide_imgs" src="../Images/hotel img 2.PNG" alt="">
+                            <img class="slide_imgs" src="../Images/hotel img 3.PNG" alt="">
+                            <img class="slide_imgs" src="../Images/hotel img 1.PNG" alt="">
+                            <img class="slide_imgs" src="../Images/hotel img 2.PNG" alt="">
+                            <img class="slide_imgs" src="../Images/hotel img 3.PNG" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <h1 id="Book_hotel_name">Select Hotel</h1>
+                <span id="Hotel_type_hotelbkg">Normal</span>
+                <span id="Book_hotel_price"> </span>
+
+                <div id="Book_hotel_facilities">
+
+                    <div id="Book_hotel_faci-child">
+
+                        <div class="facilities_div">
+                            <img src="../Images/wifi.png" class="fac_img1" alt="">
+                            <span class="facilities_names">Free Wi-Fi</span> <br>
+                            <img src="../Images/key-card.png" class="fac_img2" alt="">
+                            <span class="facilities_names">Key Card Access</span>
+                        </div>
+                        <div class="facilities_div">
+                            <img src="../Images/ac-icon.png" class="fac_img1" alt="">
+                            <span class="facilities_names">Air Conditioner</span> <br>
+                            <img src="../Images/bathroom.png" class="fac_img2" alt="">
+                            <span class="facilities_names">Private Bathroom</span>
+                        </div>
+                        <div class="facilities_div">
+                            <img src="../Images/parking.png" class="fac_img1" alt="">
+                            <span class="facilities_names">Free Parking</span> <br>
+                            <img src="../Images/helpdesk.png" class="fac_img2" alt="">
+                            <span class="facilities_names">24 Hours Desk</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <input type="button" value="Book Now" id="hotelBooking_book_now_btn"
+                            onclick="hotelBooking_book_now_btn()">
+                    </div>
+
+                    <div class="HotelBooking_popup">
+
+                        <!-- Hotel Booking Popup  -->
+
+                        <div class="HotelBooking_popup_div">
+                            <div class="fisrt_sec_popup">
+                                <h3 class="popup_hotelbooking_h3">Hotel Booking</h3>
+                                <img class="close_icon" src="../Images/close icon.png" onclick="closePopUp()" alt=""
+                                    srcset="">
+                            </div>
+
+                            <img class="popup_hotel_imgs" id="popup_hotelbuid_img1" src="../Images/hotel building 1.png"
+                                alt="">
+                            <!-- <img class="popup_hotel_imgs" src="../Images/hotel building 2.png" alt="" srcset=""> -->
+
+                            <h1 class="popup_hotel_name">Select Hotel</h1>
+
+                            <i class="fa fa-user popup" aria-hidden="true"></i> <span
+                                class="popup_profile_num hotelpersons"></span>
+                                
+                                 <span id="Hotel_type_hotelbkgin_popup"></span>
+
+                            <!-- <span> <img src="../Images/destination_popup_icon.png" class="popup_des_img"
+                                    alt="destination-image">
+                                <span class="popup_km"> km</span> </span> -->
+
+                            <h3 class="booking_ins">Booking Instructions :</h3>
+
+                            <ol class="hotelbooking_ol">
+                                <li class="li">Cash Payment only allowed. </li>
+                                <li class="li">Concerned person will pickup you from the Airport or Bustop and Drop you
+                                    at the Hotel by himself.</li>
+                                <li class="li">You can check-in to the hotel and Pay if you like the hotel.</li>
+                                <li class="li">You can change your Hotel at the same time to the best one.</li>
+
+                            </ol>
+                            <span class="total_fare">Total Fare</span> <span
+                                class="total_price hotelprice_popup">&#8377; </span> <br>
+
+                            <input type="button" class="popup_bookhotel_btn" value="Book Hotel"
+                                onclick="popup_bookhotel_btn()">
+
+                        </div>
+
+                        <!--  Hotel save with details  -->
+
+                        <div id="hotelsavediv" style="display: none;">
+
+                            <div class="fisrt_sec_popup">
+                                <h3 class="popup_hotelbooking_h3">Hotel Booking</h3>
+                                <img class="close_icon" src="../Images/close icon.png" onclick="closePopUp()" alt=""
+                                    srcset="">
+                            </div>
+
+
+                            <form action="" class="hotel_form" id="hotelsave_form" action="">
+                                <input onkeydown="return /[a-z]/i.test(event.key)"  class="inputs_hotelsave" minlength="3" name="username" id=""
+                                    placeholder="Your Name">
+                                <input type="number" onkeyup="myHotel_SaveMB()" min="1000000000" class="inputs_hotelsave"  maxlength="10" name="mobileNumber" id="hotel_save_mb"
+                                    placeholder="Mobile Number">
+                                <input type="number" class="inputs_hotelsave" minlength="1" maxlength="2" name="noofadults" id=""
+                                    placeholder="No. of Adults">
+                                <input type="number" class="inputs_hotelsave lastinputsave" minlength="1" maxlength="2" name="noofchilds" id=""
+                                    placeholder="No. of Children">
+
+                                    <p id="hotel_save_eror" class="error_msg_inHome">hi</p>
+                                <div class="hotelsaveflare">
+                                    <span style="font-size: larger">Total Fare</span>
+                                    <span class="hotelsave_rate" >&#8377; 360</span>
+                                </div>
+
+                                <!-- <button type="submit" id="hotelsave_bookbtn"  value="Book Hotel"> </button>  -->
+
+                                <input type="submit" id="hotelsave_bookbtn" 
+                                    value="Book Hotel" />
+                                    <!-- In input onclick="hotelsave_bookbtn() this should be present to open confirmation popup -->
+                            </form>
+
+
+
+                        </div>
+
+                        <!-- Hotel Booking Confirmation div  -->
+
+                        <div class="HotelConfirmation_popup_div" style="display: none;">
+
+                            <div class="fisrt_sec_popup">
+                                <h3 class="popup_Confirmation_h3">Booking Confirmation</h3>
+                                <img class="close_icon" src="../Images/close icon.png"
+                                    onclick="closePopUp_Confirmation()" alt="" srcset="">
+                            </div>
+                            <img class="booking_sucessfull_img" src="../Images/sucessfullybooking_logo.png" alt="">
+                            <h1 class="sucessful_msg">Your Hotel Booking <br> Confirmed Successfully.</h1>
+                            <h5 class="Agent_msg">Our Agent will pickup you from the Airport or Bustop <br>
+                                and Drop you at the Hotel by himself.</h5>
+                            <h3 class="sucessful_ins"> Instructions :</h3>
+                            <ol class="sucessful_ol">
+                                <li class="li">Cash Payment only allowed. </li>
+                                <li class="li">Concerned person will pickup you from the Airport or Bustop and Drop you
+                                    at the Hotel by himself.</li>
+                                <li class="li">You can check-in to the hotel and Pay if you like the hotel.</li>
+                                <li class="li">You can change your Hotel at the same time to the best one.</li>
+                            </ol>
+                            <span class="total_fare">Total Fare</span> <span class="total_price hotelsave_rate">&#8377;
+                                360</span> <br>
+                            <!-- <div class="details_div hotelsaveconfdetailsdiv">
+                                <div class="prof_div">
+                                    <img class="profile_img" src="../Images/profile img.png" alt="">
+                                    <div class="prof_details_div">
+                                        <span class="prof_name hotelconfirm_name">Haswith Kumar</span> <br>
+                                        <span class="prof_no ">Mobile: +91 <span class="hotelconfirm_mobileNo">9876543210</span> </span>
+                                    </div>
+                                </div>
+                                <div class="whats_msg_div">
+                                    <img class="whats_msg_imgs" src="../Images/whatsapp logo.png" alt="">
+                                    <img class="whats_msg_imgs" src="../Images/message icon.png" alt="">
+                                </div>
+
+                            </div> -->
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+            <!--       HOTELBOOKING TOP RATED SECTION                  -->
+
+
+            <section id="hotelBooking_TopRated_hotel_sec">
+                <h3>Top Rated Hotels</h3>
+
+                <div id="our_hotels_div">
+
+                    <div #swiperRef="" class="swiper mySwiper" id="swiper_up_hotelbooking">
+                        <div class="swiper-wrapper our_hotels_api" id="swiper-wrapper_up_hotelbooking">
+
+                            <div class="swiper-slide homeslides"></div>
+                            <div class="swiper-slide homeslides"></div>
+                            <div class="swiper-slide homeslides"></div>
+                            <div class="swiper-slide homeslides"></div>
+                            <div class="swiper-slide homeslides"></div>
+
+                        </div>
+
+                    </div>
+                    <div class="next_prev_btn_up_div_hotelbooking">
+                        <div class="swiper-button-next" id="swiper-button-next_up_hotelbooking" onclick="swiperBtn_hotel_down()"></div>
+                        <div class="swiper-button-prev" id="swiper-button-prev_up_hotelbooking"></div>
+                        <!-- <div class="swiper-pagination"></div> -->
+                    </div>
+
+                </div>
+
+
+                
+
+
+
+
+                <!--<div id="hotelBooking_TopRated_hotel_divs">
+
+                   
+                    <div class="hotelBooking_TopRated_hotel_div">
+                        <img src="../Images/hotel building 1.png" class="hotelBkg_topRated_imgs" alt="image1">
+                        <div class="HoteBooking_toprated_rating_div">
+                            <i class="fa fa-star checked" id="icon"></i>
+                            <span class="top_visited_rating_span">4.5</span>
+                        </div>
+                        <p class="top_visited_hotel_name"> Sri Siva Ganga Bhakthi..</p>
+                        <i class="fa fa-user" aria-hidden="true"></i> <span class="profile_num">4</span> <br>
+                        
+                        <span class="hotelBkg_toprated_hotel_price">&#8377; 450</span>
+                        <input type="button" class="hotel_btn" value="Book Now">
+                    </div>
+
+                    <div class="hotelBooking_TopRated_hotel_div">
+                        <img src="../Images/hotel building 2.png" class="hotelBkg_topRated_imgs" alt="image1">
+                        <div class="HoteBooking_toprated_rating_div">
+                            <i class="fa fa-star checked" id="icon"></i>
+                            <span class="top_visited_rating_span">4.5</span>
+                        </div>
+                        <p class="top_visited_hotel_name"> Sri Siva Ganga Bhakthi..</p>
+                        <i class="fa fa-user" aria-hidden="true"></i> <span class="profile_num">4</span> <br>
+                     
+                        <span class="hotelBkg_toprated_hotel_price">&#8377; 450</span>
+                        <input type="button" class="hotel_btn" value="Book Now">
+                    </div>
+
+                    <div class="hotelBooking_TopRated_hotel_div">
+                        <img src="../Images/hotel building 3.png" class="hotelBkg_topRated_imgs" alt="image1">
+                        <div class="HoteBooking_toprated_rating_div">
+                            <i class="fa fa-star checked" id="icon"></i>
+                            <span class="top_visited_rating_span">4.5</span>
+                        </div>
+                        <p class="top_visited_hotel_name"> Sri Siva Ganga Bhakthi..</p>
+                        <i class="fa fa-user" aria-hidden="true"></i> <span class="profile_num">4</span> <br>
+                        
+                        <span class="hotelBkg_toprated_hotel_price">&#8377; 450</span>
+                        <input type="button" class="hotel_btn" value="Book Now">
+                    </div>
+
+                    <div class="hotelBooking_TopRated_hotel_div">
+                        <img src="../Images/hotel building 4.png" class="hotelBkg_topRated_imgs" alt="image1">
+                        <div class="HoteBooking_toprated_rating_div">
+                            <i class="fa fa-star checked" id="icon"></i>
+                            <span class="top_visited_rating_span">4.5</span>
+                        </div>
+                        <p class="top_visited_hotel_name"> Sri Siva Ganga Bhakthi..</p>
+                        <i class="fa fa-user" aria-hidden="true"></i> <span class="profile_num">4</span> <br>
+                      
+                        <span class="hotelBkg_toprated_hotel_price">&#8377; 450</span>
+                        <input type="button" class="hotel_btn" value="Book Now">
+                    </div>
+
+                </div> -->
+
+                                  <!--    img  Loader  while fetching data from API...    -->
+
+                        <div id="Hotelbooking_TopRatedHotels_loader" class="bottum_loader hotelBooking_BL">                        
+                            <img class="Loader_img_bottum zoom-in-zoom-out" src="../Images/ujjain_logo_png.png" alt="">
+                        </div>
+
+
+            </section>
+        </main>
+
+        <!--               Puja Booking section main starts here ......           -->
+
+        <main id="Puja_booking_main">
+
+            <section id="Traditionalpujas_sec">
+                <h3>Traditional Pujas</h3>
+
+                <div class="Traditional_Pujas_divs">
+
+                    <div #swiperRef="" class="swiper mySwiper" id="swiper_puja_up">
+                        <div class="swiper-wrapper" id="swiper-wrapper_puja_up">
+
+                            <div class="swiper-slide puja_slides_up"></div>
+                            <div class="swiper-slide puja_slides_up"></div>
+                            <div class="swiper-slide puja_slides_up"></div>
+                            <div class="swiper-slide puja_slides_up"></div>
+                            <div class="swiper-slide puja_slides_up"></div>
+                            <div class="swiper-slide puja_slides_up"></div>
+                            <div class="swiper-slide puja_slides_up"></div>
+                            <div class="swiper-slide puja_slides_up"></div>
+                            
+
+
+                        </div>
+                    </div>
+                    <div class="next_prev_btn_puja_up_div">
+                        <div class="swiper-button-next" id="swiper-button-next_puja_up" onclick="swiperBtn_puja_up()">
+                        </div>
+                        <div class="swiper-button-prev" id="swiper-button-prev_puja_up"> </div>
+                        <!-- <div class="swiper-pagination"></div> -->
+                    </div>
+                </div>
+
+                <!--                            puja Booking popup      -->
+
+                <div id="PujaBooking_popup" style=" display: none; position: relative;">
+
+                    <div id="pujaPackageBooking_popupdiv" style="display: none;">
+                        <div class="fisrt_sec_popup">
+                            <h3 class="popup_pujabooking_h3">Puja Package Booking</h3>
+                            <img class="close_icon" src="../Images/close icon.png"
+                                onclick="pujaPackageBooking_closePopUp()" alt="" srcset="">
+                        </div>
+                        <h4 class="popup_pujapackage_name">Selected Pujas</h4>
+ 
+                        <div class="scrolling-container10">
+                            <div class="puja_package_divs">
+                                <img class="Package_imgs" src="../Images/Kaalsarp Dosha Puja img.png" alt="" srcset="">
+                                <div>
+                                    <span class="pujaNames puja-api-popup-name01">Kaalsarp Dosha Puja</span>
+                                    <div style="display: flex;">
+                                        <img class="Package_location_img" src="../Images/Location icon.png" alt=""
+                                            srcset="">
+                                        <span class="Package_templeName puja-api-popup-name02">Shree Kal Bhairav Temple</span>
+                                        <i class="fa fa-user id" !id="Package_user_icon" aria-hidden="true"></i>
+                                        <span class="Package_profile_num puja-api-popup-name03">4</span>
+                                        <span class="Package_pricenum puja-api-popup-name04">&#8377; 500</span>
+                                    </div>
+                                </div>
+                                <!-- <img class="Package_delete_icon" style="margin-left: 25px;" src="../Images/delete_icon.png"
+                                    alt=""> -->
+                            </div>
+ 
+                            <!-- <div class="puja_package_divs" style="display: none;">
+                                <img class="Package_imgs" src="../Images/Mahakal Puja img.png" alt="" srcset="">
+                                <div>
+                                    <span class="pujaNames">Mahakal Puja</span>
+                                    <div style="display: flex;">
+                                        <img class="Package_location_img" src="../Images/Location icon.png" alt=""
+                                            srcset="">
+                                        <span class="Package_templeName">Mahakaleshwar Temple</span>
+                                        <i class="fa fa-user id" !id="Package_user_icon" aria-hidden="true"></i>
+                                        <span class="Package_profile_num">4</span>
+                                        <span class="Package_pricenum">&#8377; 500</span>
+                                    </div>
+                                </div>
+                                <img class="Package_delete_icon" src="../Images/delete_icon.png" alt="">
+                            </div>
+ 
+                            <div class="puja_package_divs" style="display: none;">
+                                <img class="Package_imgs" src="../Images/Rudra Abhisheka Puja img.png" alt="" srcset="">
+                                <div>
+                                    <span class="pujaNames">Rudra Abhisheka Puja</span>
+                                    <div style="display: flex;">
+                                        <img class="Package_location_img" src="../Images/Location icon.png" alt=""
+                                            srcset="">
+                                        <span class="Package_templeName">Mahakaleshwar Temple</span>
+                                        <i class="fa fa-user id" !id="Package_user_icon" aria-hidden="true"></i>
+                                        <span class="Package_profile_num">4</span>
+                                        <span class="Package_pricenum">&#8377; 500</span>
+                                    </div>
+                                </div>
+                                <img class="Package_delete_icon" src="../Images/delete_icon.png" alt="">
+                            </div> -->
+ 
+                        </div>
+ 
+    
+                            <h3 class="booking_ins" style="margin-top: 110px;">Booking Instructions :</h3>
+                            <ol class="hotelbooking_ol">
+                                <li class="li">Cash Payment only allowed. </li>
+                                <li class="li">Concerned person will pickup you from the Airport or Bustop and Drop you
+                                    at the Hotel by himself.</li>
+                                <li class="li">You can check-in to the hotel and Pay if you like the hotel.</li>
+                                <li class="li">You can change your Hotel at the same time to the best one.</li>
+    
+                            </ol>
+                            <span class="total_fare">Total Fare</span>
+                            <span class="Package_totalprice puja-api-price" id="Package_totalprice"></span>
+                            <input type="button" class="popup_bookhotel_btn"  value="Book Puja Package"
+                                onclick="popup_packageBooking_btn()">
+    
+                    </div>
+
+
+
+
+                    <!-- <div id="PujaBooking_popup_div">
+
+                        <div class="fisrt_sec_popup">
+                            <h3 class="popup_pujabooking_h3">Puja Booking</h3>
+                            <img class="close_icon" src="../Images/close icon.png" onclick="pujaBooking_closePopUp()"
+                                alt="" srcset="">
+                        </div>
+                        <img class="pujabooking_imgs" src="../Images/Mahakal Puja img.png" alt="">
+                        <img class="pujabooking_imgs" src="../Images/Mahakal puja 2 img.png" alt="">
+                        <h1 class="popup_pujabooking_name" id="popup_pujabooking_name"></h1>
+                        <i class="fa fa-user popup" aria-hidden="true"></i>
+                        <span class="pujabkg_popup_profilenum">4</span>
+                        <img src="../Images/Location icon.png" class="popup_puja_location_img" alt="">
+                        <span id="pujapopup_temple_name">Mahakaleshwar Temple</span>
+                        <h4 class="popup_needful_things">Needful Things :</h4>
+                        <ol class="pujapopup_ol">
+                            <li class="pujapoup_li">Turmeric Powder &nbsp; &nbsp; &nbsp; : 100 grams</li>
+                            <li class="pujapoup_li">Lemons &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;: 3</li>
+                            <li class="pujapoup_li">Nava Dhanya &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; : 1
+                                packet </li>
+                            <li class="pujapoup_li">Coconut &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 2</li>
+                            <li class="pujapoup_li">Flower Garland&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;: 2</li>
+                            <li class="pujapoup_li">Separate Flowers&nbsp; &nbsp; &nbsp; &nbsp;: 20 - 30</li>
+                            <li class="pujapoup_li">Red & Black Cloth&nbsp; &nbsp; &nbsp; : 1 each</li>
+                        </ol>
+                        <span class="total_fare">Total Fare</span>
+                        <span class="pujapoup_total_price" id="booking_popup_total_price"></span>
+                        <input type="button" class="popup_bookpuja_btn" value="Book Puja"
+                            onclick="popup_pujabook_btn()">
+
+                    </div> -->
+
+
+                    <!-- Puja Confirmation Div -->
+
+                    <div id="PujaConfirmation_popup_div" style="display: none;">
+
+                        <div class="fisrt_sec_popup">
+                            <h3 class="popup_pujabooking_h3">Puja Booking</h3>
+                            <img class="close_icon" src="../Images/close icon.png" onclick="confirBooking_closePopUp()"
+                                alt="" srcset="">
+                        </div>
+                        <img class="booking_sucessfull_img" src="../Images/sucessfullybooking_logo.png" alt="">
+                        <h1 class="sucessful_msg">Your Puja Booking <br> Confirmed Successfully.</h1>
+                        <h5 class="Agent_msg">Our Agent will pickup you from your Hotel by himself <br>
+                            and he will do the needful until Puja is finished.</h5>
+
+                        <h4 class="popup_needful_things">Needful Things :</h4>
+                        <ol class="pujapopup_ol">
+                            <li class="pujapoup_li">Turmeric Powder &nbsp; &nbsp; &nbsp; : 100 grams</li>
+                            <li class="pujapoup_li">Lemons &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;: 3</li>
+                            <li class="pujapoup_li">Nava Dhanya &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; : 1
+                                packet </li>
+                            <li class="pujapoup_li">Coconut &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 2</li>
+                            <li class="pujapoup_li">Flower Garland&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;: 2</li>
+                            <li class="pujapoup_li">Separate Flowers&nbsp; &nbsp; &nbsp; &nbsp;: 20 - 30</li>
+                            <li class="pujapoup_li">Red & Black Cloth&nbsp; &nbsp; &nbsp; : 1 each</li>
+                        </ol>
+                        <span class="total_fare">Total Fare</span>
+                        <span class="pujapoup_total_price puja-api-price" id="Confirmation_booking_popup_total_price"></span>
+                        <!-- <div class="details_div">
+                            <div class="prof_div">
+                                <img class="profile_img" src="../Images/profile img.png" alt="">
+                                <div class="prof_details_div">
+                                    <span class="prof_name">Haswith Kumar</span> <br>
+                                    <span class="prof_no">Mobile: +91 9876543210</span>
+                                </div>
+                            </div>
+                            <div class="whats_msg_div">
+                                <img class="whats_msg_imgs" src="../Images/whatsapp logo.png" alt="">
+                                <img class="whats_msg_imgs" src="../Images/message icon.png" alt="">
+                            </div>
+
+                        </div> -->
+
+                    </div>
+                </div>
+
+                            <!--    img  Loader  while fetching data from API...    -->
+
+                            <div id="Pujabooking_TraditionalPujas_loader" class="Top_loader ">
+                                <!-- <div class="loader"></div> -->
+                                <img class="Loader_img zoom-in-zoom-out" src="../Images/ujjain_logo_png.png" alt="">
+                            </div>
+
+
+
+            </section>
+
+            <section id="Ujjain_FamousPujas_sec">
+                <h3>Ujjain Famous Pujas</h3>
+
+                <div class="Ujjain_FamousPujas_divs">
+
+                    <div #swiperRef="" class="swiper mySwiper" id="swiper_puja_down">
+                        <div class="swiper-wrapper" id="swiper-wrapper_puja_down">
+
+
+                            
+
+                            <div class="swiper-slide ujjainFamous_puja"></div>
+                            <div class="swiper-slide ujjainFamous_puja"> </div>
+                                <div class="swiper-slide ujjainFamous_puja"></div>
+                                     <div class="swiper-slide ujjainFamous_puja"></div>
+                            <!-- <div class="swiper-slide">
+                                <div class="Ujjain_FamousPujas_div">
+                                    <img src="../Images/Kuja Dosha Puja img.png" class="Ujjain_FamousPujas_imgs" alt=""
+                                        srcset="">
+                                    <p class="Famous_puja_name">Kuja Dosha Puja</p>
+                                    <div class="Famous_Location_pujaname_div">
+                                        <img src="../Images/Location icon.png" class="Famous_location_img" alt="">
+                                        <span class="Famous_Temple_name">Shani Deva Temple</span>
+                                    </div>
+                                    <span class="Famous_puja_price">&#8377; 360</span>
+                                    <input type="button" class="Famous_puja_booknow_btn" value="Book Now">
+                                </div>
+                            </div>
+
+
+                            <div class="swiper-slide">
+                                <div class="Ujjain_FamousPujas_div">
+                                    <img src="../Images/Mahakal Puja img.png" class="Ujjain_FamousPujas_imgs" alt=""
+                                        srcset="">
+                                    <p class="Famous_puja_name">Mahakal Puja</p>
+                                    <div class="Famous_Location_pujaname_div">
+                                        <img src="../Images/Location icon.png" class="Famous_location_img" alt="">
+                                        <span class="Famous_Temple_name">Mahakaleshwar Temple</span>
+                                    </div>
+                                    <span class="Famous_puja_price">&#8377; 360</span>
+                                    <input type="button" class="Famous_puja_booknow_btn" value="Book Now">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+
+                                <div class="Ujjain_FamousPujas_div">
+                                    <img src="../Images/Rudra Abhisheka Puja img.png" class="Ujjain_FamousPujas_imgs"
+                                        alt="" srcset="">
+                                    <p class="Famous_puja_name">Rudra Abhisheka Puja</p>
+                                    <div class="Famous_Location_pujaname_div">
+                                        <img src="../Images/Location icon.png" class="Famous_location_img" alt="">
+                                        <span class="Famous_Temple_name">Mahakaleshwar Temple</span>
+                                    </div>
+                                    <span class="Famous_puja_price">&#8377; 360</span>
+                                    <input type="button" class="Famous_puja_booknow_btn" value="Book Now">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="Ujjain_FamousPujas_div">
+                                    <img src="../Images/Kaalsarp Dosha Puja img.png" class="Ujjain_FamousPujas_imgs"
+                                        alt="" srcset="">
+                                    <p class="Famous_puja_name">Kaalsarp Dosha Puja</p>
+                                    <div class="Famous_Location_pujaname_div">
+                                        <img src="../Images/Location icon.png" class="Famous_location_img" alt="">
+                                        <span class="Famous_Temple_name">Shree Kal Bhaira Temple</span>
+                                    </div>
+                                    <span class="Famous_puja_price">&#8377; 360</span>
+                                    <input type="button" class="Famous_puja_booknow_btn" value="Book Now">
+                                </div>
+                            </div>
+                            <div class="swiper-slide"> </div>
+                            <div class="swiper-slide"> </div>
+                            <div class="swiper-slide"> </div> -->
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="next_prev_btn_puja_down_div">
+                        <div class="swiper-button-next" id="swiper-button-next_puja_down"
+                            onclick="swiperBtn_puja_down()"></div>
+                        <div class="swiper-button-prev" id="swiper-button-prev_puja_down"> </div>
+
+                    </div>
+                </div>
+
+
+
+                   <!--    img  Loader  while fetching data from API...    -->
+
+                   <div id="ujjain_Famous_loader" class="bottum_loader ">                        
+                    <img class="Loader_img_bottum zoom-in-zoom-out" src="../Images/ujjain_logo_png.png" alt="">
+                </div>
+
+
+
+            </section>
+        </main>
+
+        <!--      Ujjain Darshan main   starts from here  .....             -->
+
+        <main id="UjjainDarshan_main">
+
+            <section class="top-visited-places-sec">
+                <h3 style="margin-bottom: 10px;">Top Visited Places</h3>
+
+                <div class="top-visited-places-div">
+
+                    <div #swiperRef="" class="swiper mySwiper" id="swiper_ujjain_up">
+                        <div class="swiper-wrapper" id="swiper-wrapper_ujjain_up">
+
+
+                            <div class="swiper-slide ujjain_swiperslides"> </div>
+                            <div class="swiper-slide ujjain_swiperslides"> </div>
+                            <div class="swiper-slide ujjain_swiperslides"> </div>
+                            <div class="swiper-slide ujjain_swiperslides"> </div>
+                            <div class="swiper-slide ujjain_swiperslides"> </div>
+                            <div class="swiper-slide ujjain_swiperslides"> </div>
+                            <div class="swiper-slide ujjain_swiperslides"> </div>
+                            <div class="swiper-slide ujjain_swiperslides"> </div>
+                            <div class="swiper-slide ujjain_swiperslides"> </div>
+                            <div class="swiper-slide ujjain_swiperslides"> </div>
+                            <div class="swiper-slide ujjain_swiperslides"> </div>
+
+
+
+
+                        </div>
+                    </div>
+                    <div class="next_prev_btn_ujjain_up_div">
+                        <div class="swiper-button-next" id="swiper-button-next_ujjain_up"
+                            onclick="swiperBtn_ujjain_up()"></div>
+                        <div class="swiper-button-prev" id="swiper-button-prev_ujjain_up"> </div>
+                        <!-- <div class="swiper-pagination"></div> -->
+                    </div>
+
+                </div>
+
+
+                <!--                           ujjain dharshan popup      -->
+
+                <div id="ujjain_popup" style=" display: none; position: relative;">
+
+                    <div id="ujjain_popupdiv">
+                        <div class="fisrt_sec_popup">
+                            <h3 class="popup_pujabooking_h3">Guide Booking</h3>
+                            <img class="close_icon" src="../Images/close icon.png" onclick="ujjainBooking_closePopUp()"
+                                alt="" srcset="">
+                        </div>
+                        <h4 class="popup_pujapackage_name">Visiting Places</h4>
+
+                        <div class="puja_package_divs">
+                            <img class="Package_imgs ujjainpopup_img" src="" alt="" srcset="">
+                            <div>
+                                <span class="pujaNames ujjainname"></span>
+                                <div style="display: flex;">
+                                    <img class="Package_location_img" src="../Images/destination_popup_icon.png"
+                                        style="width: 19px;" alt="">
+                                    <span class="Package_templeName ujjainkm" style="font-size: 11px;">2.3 km</span>
+
+                                    <span class="Package_pricenum ujjainpopup_price">&#8377; 250</span>
+                                </div>
+                            </div>
+                            <img class="ujjain_delete_icon" onclick="ujjain_delete()" src="../Images/delete_icon.png"
+                                alt="">
+                        </div>
+
+
+                        <!-- add one more puja 
+
+                           <div class="puja_package_divs sec_packagediv" style="visibility: hidden;">
+                                <img class="Package_imgs ujjainpopup_img"  src="" alt="" srcset="">
+                                <div>  
+                                    <span class="pujaNames ujjainname"></span>
+                                    <div style="display: flex;">
+                                        <img class="Package_location_img" src="../Images/destination_popup_icon.png" style="width: 19px;"  alt="" >
+                                        <span class="Package_templeName ujjainkm" style="font-size: 11px;">2.3 km</span>
+                                    
+                                        <span class="Package_pricenum ujjainpopup_price"  >&#8377; 250</span>
+                                    </div>
+                                </div>
+                                    <img class="ujjain_delete_icon" src="../Images/delete_icon.png" alt="">
+                            </div>
+
+                            <div class="puja_package_divs sec_packagediv" style="visibility: hidden;">
+                                <img class="Package_imgs ujjainpopup_img"  src="" alt="" srcset="">
+                                <div>  
+                                    <span class="pujaNames ujjainname"></span>
+                                    <div style="display: flex;">
+                                        <img class="Package_location_img" src="../Images/destination_popup_icon.png" style="width: 19px;"  alt="" >
+                                        <span class="Package_templeName ujjainkm" style="font-size: 11px;">2.3 km</span>
+                                    
+                                        <span class="Package_pricenum ujjainpopup_price"  >&#8377; 250</span>
+                                    </div>
+                                </div>
+                                    <img class="ujjain_delete_icon" src="../Images/delete_icon.png" alt="">
+                            </div> -->
+
+
+
+                        <div id="ins_div_content">
+
+                            <h3 class="booking_ins" id="ujjain_ins">Booking Instructions :</h3>
+                            <ol class="hotelbooking_ol">
+                                <li class="li">Cash Payment only allowed. </li>
+                                <li class="li">Concerned person will pickup you from the Airport or <br> Bustop and Drop
+                                    you
+                                    at the Hotel by himself.</li>
+                                <li class="li">You can check-in to the hotel and Pay if you like the hotel.</li>
+                                <li class="li">You can change your Hotel at the same time to the best one.</li>
+
+                            </ol>
+                            <span class="total_fare">Total Fare</span>
+                            <span class="total_price ujjainpopup_price">&#8377; 360</span>
+                            <input type="button" class="popup_bookhotel_btn" value="Book Guide"
+                                onclick="ujjainpackage_popup_btn()">
+
+
+                        </div>
+
+
+                    </div>
+
+                    <div id="ujjainConfirmation_popupdiv" style="display: none;">
+                        <div class="fisrt_sec_popup">
+                            <h3 class="popup_pujabooking_h3">Guide Booking</h3>
+                            <img class="close_icon" src="../Images/close icon.png"
+                                onclick="ujjainConfirmation_closePopUp()" alt="" srcset="">
+                        </div>
+                        <img class="booking_sucessfull_img" src="../Images/sucessfullybooking_logo.png" alt="">
+                        <h1 class="sucessful_msg">Your Package Booking <br> Confirmed Successfully.</h1>
+                        <h5 class="Agent_msg">Our Agent will pickup you from the Airport or Bustop <br>
+                            and Drop you at the Hotel by himself.</h5>
+                        <h4 class="sucessful_ins">Booking Instructions :</h4>
+                        <ol class="sucessful_ol">
+                            <li class="li">Cash Payment only allowed. </li>
+                            <li class="li">Concerned person will pickup you from the Airport or Bustop and Drop you
+                                at the Hotel by himself.</li>
+                            <li class="li">You can check-in to the hotel and Pay if you like the hotel.</li>
+                            <li class="li">You can change your Hotel at the same time to the best one.</li>
+                        </ol>
+                        <span class="total_fare">Total Fare</span> <span class="total_price ujjainpopup_price">&#8377;
+                            950</span> <br>
+                        <!-- <div class="details_div">
+                            <div class="prof_div">
+                                <img class="profile_img" src="../Images/profile img.png" alt="">
+                                <div class="prof_details_div">
+                                    <span class="prof_name">Haswith Kumar</span> <br>
+                                    <span class="prof_no">Mobile: +91 9876543210</span>
+                                </div>
+                            </div>
+                            <div class="whats_msg_div">
+                                <img class="whats_msg_imgs" src="../Images/whatsapp logo.png" alt="">
+                                <img class="whats_msg_imgs" src="../Images/message icon.png" alt="">
+                            </div>
+                        </div> -->
+
+                    </div>
+
+                </div>
+
+
+                <!--    img  Loader  while fetching data from API...    -->
+
+                <div id="UjjainDarshan_TopVisitedplaces_loader" class="Top_loader ">
+                    <!-- <div class="loader"></div> -->
+                    <img class="Loader_img zoom-in-zoom-out" src="../Images/ujjain_logo_png.png" alt="">
+                </div>
+
+
+
+
+
+
+            </section>
+
+            <section class="nearby-visiting-places-sec">
+                <h3 style="margin-top: 0%;">Top Visited Hotels</h3>
+
+                <div id="home_top_rated_divs">
+                    <div #swiperRef="" class="swiper mySwiper" id="swiper_ujjain_down">
+                        <div class="swiper-wrapper" id="swiper-wrapper_ujjain_down">
+
+
+                            <div class="swiper-slide ujjan_slides_down"> </div>
+                            <div class="swiper-slide ujjan_slides_down"> </div>
+                            <div class="swiper-slide ujjan_slides_down"> </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="next_prev_btn_ujjain_down_div">
+                        <div class="swiper-button-next" id="swiper-button-next_ujjain_down"
+                            onclick="swiperBtn_ujjain_down()"></div>
+                        <div class="swiper-button-prev" id="swiper-button-prev_ujjain_down"> </div>
+
+                    </div>
+
+
+                </div>
+
+                             <!--    img  Loader  while fetching data from API...    -->
+
+                        <div id="UjjainDarshan_hotels_loader_loader" class="bottum_loader ">                        
+                            <img class="Loader_img_bottum zoom-in-zoom-out" src="../Images/ujjain_logo_png.png" alt="">
+                        </div>
+
+
+            </section>
+
+
+        </main>
+
+        <!--                          Omkareshwar main starts from here ...............                            -->
+
+
+        <main id="Omkareshwar_main">
+
+            <section class="top-visited-places-sec">
+                <h3 style="margin-bottom: 10px;">Top Visited Places</h3>
+
+
+                <div class="top-visited-places-div">
+
+                    <div #swiperRef="" class="swiper mySwiper" id="swiper_omkar_up">
+                        <div class="swiper-wrapper" id="swiper-wrapper_omkar_up">
+
+                            <div class="swiper-slide ujjain_swiperslides"></div>
+                            <div class="swiper-slide ujjain_swiperslides"></div>
+                            <div class="swiper-slide ujjain_swiperslides"></div>
+                            <div class="swiper-slide ujjain_swiperslides"></div>
+                            <div class="swiper-slide ujjain_swiperslides"></div>
+                            <div class="swiper-slide ujjain_swiperslides"></div>
+                            <div class="swiper-slide ujjain_swiperslides"></div>
+
+
+
+
+                        </div>
+                    </div>
+                    <div class="next_prev_btn_omkar_up_div">
+                        <div class="swiper-button-next" id="swiper-button-next_omkar_up" onclick="swiperBtn_omkar_up()">
+                        </div>
+                        <div class="swiper-button-prev" id="swiper-button-prev_omkar_up"> </div>
+                        <!-- <div class="swiper-pagination"></div> -->
+                    </div>
+
+                </div>
+
+
+                <!--     omkar popup            -->
+
+                <div id="omkar_popup" style=" display: none; position: relative;">
+
+                    <div id="omkar_popupdiv">
+                        <div class="fisrt_sec_popup">
+                            <h3 class="popup_pujabooking_h3">Guide Package Booking</h3>
+                            <img class="close_icon" src="../Images/close icon.png" onclick="omkarBooking_closePopUp()"
+                                alt="" srcset="">
+                        </div>
+                        <h4 class="popup_pujapackage_name">Visiting Places</h4>
+
+                        <div id="omkar_guides_packages_divs">
+
+                            <div class="puja_package_divs omkarpackagediv">
+                                <img class="Package_imgs omkarpopup_img" src="../Images/image 1.PNG" alt="" srcset="">
+                                <div>
+                                    <span class="omkarpujaNames">Ram Ghat</span>
+                                    <div style="display: flex;">
+                                        <img class="Package_location_img" src="../Images/destination_popup_icon.png"
+                                            style="width: 19px;" alt="">
+                                        <span class="Package_templeName omkarkm" style="font-size: 11px;">2.3 km</span>
+
+                                        <span class="Package_pricenum omkarpopup_price">&#8377; 250</span>
+                                    </div>
+                                </div>
+                                <img class="ujjain_delete_icon" src="../Images/delete_icon.png" alt="">
+                            </div>
+
+
+                        </div>
+
+
+                        <h3 class="booking_ins" id="omkar_ins">Booking Instructions :</h3>
+                        <ol class="hotelbooking_ol">
+                            <li class="li">Cash Payment only allowed. </li>
+                            <li class="li">Concerned person will pickup you from the Airport or <br> Bustop and Drop you
+                                at the Hotel by himself.</li>
+                            <li class="li">You can check-in to the hotel and Pay if you like the hotel.</li>
+                            <li class="li">You can change your Hotel at the same time to the best one.</li>
+
+                        </ol>
+                        <span class="total_fare">Total Fare</span>
+                        <span class="total_price omkartotalprice">&#8377; 950</span>
+                        <input type="button" class="popup_bookhotel_btn" value="Book Package"
+                            onclick="omkarpackage_popup_btn()">
+
+                    </div>
+                    <!--                              Omkar Confirmation      -->
+
+                    <div id="omkarConfirmation_popupdiv" style="display: none;">
+                        <div class="fisrt_sec_popup">
+                            <h3 class="popup_pujabooking_h3">Package Booking</h3>
+                            <img class="close_icon" src="../Images/close icon.png"
+                                onclick="omkarConfirmation_closePopUp()" alt="" srcset="">
+                        </div>
+                        <img class="booking_sucessfull_img" src="../Images/sucessfullybooking_logo.png" alt="">
+                        <h1 class="sucessful_msg">Your Package Booking <br> Confirmed Successfully.</h1>
+                        <h5 class="Agent_msg">Our Agent will pickup you from the Airport or Bustop <br>
+                            and Drop you at the Hotel by himself.</h5>
+                        <h4 class="sucessful_ins">Booking Instructions :</h4>
+                        <ol class="sucessful_ol">
+                            <li class="li">Cash Payment only allowed. </li>
+                            <li class="li">Concerned person will pickup you from the Airport or <br> Bustop and Drop you
+                                at the Hotel by himself.</li>
+                            <li class="li">You can check-in to the hotel and Pay if you like the hotel.</li>
+                            <li class="li">You can change your Hotel at the same time to the best one.</li>
+                        </ol>
+                        <span class="total_fare">Total Fare</span> <span class="total_price omkartotalprice">&#8377;
+                            950</span> <br>
+                        <!-- <div class="details_div">
+                            <div class="prof_div">
+                                <img class="profile_img" src="../Images/profile img.png" alt="">
+                                <div class="prof_details_div">
+                                    <span class="prof_name">Haswith Kumar</span> <br>
+                                    <span class="prof_no">Mobile: +91 9876543210</span>
+                                </div>
+                            </div>
+                            <div class="whats_msg_div">
+                                <img class="whats_msg_imgs" src="../Images/whatsapp logo.png" alt="">
+                                <img class="whats_msg_imgs" src="../Images/message icon.png" alt="">
+                            </div>
+                        </div> -->
+
+                    </div>
+
+
+
+
+                </div>
+
+                                <!--    img  Loader  while fetching data from API...    -->
+
+                            <div id="Omkar_TopVisited_loader" class="Top_loader ">
+                                <!-- <div class="loader"></div> -->
+                                <img class="Loader_img zoom-in-zoom-out" src="../Images/ujjain_logo_png.png" alt="">
+                            </div>
+
+
+            </section>
+
+            <section class="nearby-visiting-places-sec">
+
+                <h3 style="margin-top: 0%;">Top Visited Hotels</h3>
+
+                <div id="home_top_rated_divs">
+                    <div #swiperRef="" class="swiper mySwiper" id="swiper_omkar_down">
+                        <div class="swiper-wrapper" id="swiper-wrapper_omkar_down">
+
+                           
+
+                            <div class="swiper-slide omkar_slides_down" > </div>
+                            <div class="swiper-slide omkar_slides_down" > </div>
+                            <div class="swiper-slide omkar_slides_down" > </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="next_prev_btn_omkar_down_div">
+                        <div class="swiper-button-next" id="swiper-button-next_omkar_down"
+                            onclick="swiperBtn_omkar_down()"></div>
+                        <div class="swiper-button-prev" id="swiper-button-prev_omkar_down"> </div>
+
+                    </div>
+
+
+                </div>
+
+                            <!--    img  Loader  while fetching data from API...    -->
+
+                        <div id="Omkar_hotels_loader_loader" class="bottum_loader ">                        
+                            <img class="Loader_img_bottum zoom-in-zoom-out" src="../Images/ujjain_logo_png.png" alt="">
+                        </div>
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+
+        </main>
+
+        <!--          MaaBaglamukhi main   starts here.......          -->
+
+
+        <main id="MaaBaglamukhi_main">
+            <section class="top-visited-places-sec">
+                <h3 style="margin-bottom: 10px;">Top Visited Places</h3>
+
+
+                <div class="top-visited-places-div">
+
+                    <div #swiperRef="" class="swiper mySwiper" id="swiper_maabag_up">
+                        <div class="swiper-wrapper" id="swiper-wrapper_maabag_up">
+
+
+                            <div class="swiper-slide ujjain_swiperslides Maabagla_slides"> </div>
+                            <div class="swiper-slide ujjain_swiperslides Maabagla_slides"> </div>
+                            <div class="swiper-slide ujjain_swiperslides Maabagla_slides"> </div>
+                            <div class="swiper-slide ujjain_swiperslides Maabagla_slides"> </div>
+                            <div class="swiper-slide ujjain_swiperslides Maabagla_slides"> </div>
+
+                            <div class="swiper-slide ujjain_swiperslides Maabagla_slides"> </div>
+
+
+                        </div>
+                    </div>
+                    <div class="next_prev_btn_maabag_up_div">
+                        <div class="swiper-button-next" id="swiper-button-next_maabag_up"
+                            onclick="swiperBtn_maabag_up()"></div>
+                        <div class="swiper-button-prev" id="swiper-button-prev_maabag_up"> </div>
+                        <!-- <div class="swiper-pagination"></div> -->
+                    </div>
+                </div>
+
+
+                <!--     MAA Baglamukhi Tour popup            -->
+
+                <div id="maabag_popup" style=" display: none; position: relative;">
+
+                    <div id="maabag_popupdiv">
+
+                        <div class="fisrt_sec_popup">
+                            <h3 class="popup_pujabooking_h3">Package Booking</h3>
+                            <img class="close_icon" src="../Images/close icon.png" onclick="maabagBooking_closePopUp()"
+                                alt="" srcset="">
+                        </div>
+                        <h4 class="popup_pujapackage_name">Visiting Places</h4>
+
+                        <div id="maabagla_guides_packages_divs">
+                            <!--   Mabaglamukhi package divs from apis  -->
+                            <div class="puja_package_divs maabaglapackagediv">
+                                               <img class="Package_imgs mabagala_popupimg" src="../Images/image 2.PNG" alt="" srcset="">
+                                              <div>  
+                                                  <span class="omkarpujaNames mabaglaname">Ram Ghat</span>
+                                                   <div class="dis_price_div" >
+                                                       <img class="Package_location_img" src="../Images/destination_popup_icon.png" style="width: 19px;"  alt="" >
+                                                      <span class="Package_templeName mabaglakm" style="font-size: 11px;">0</span>
+                                                       <span class="Package_pricenum "  >&#8377; <span class="maabaglaprice"> 00</span>  </span>
+                                              </div>
+                                              </div>
+                                                  <img class="maabagla_deleteicon" id="maabagladelete"  onclick="delete_maabaglacard()"  src="../Images/delete_icon.png" alt="">
+                            </div>
+
+                        </div>
+
+
+                        <h3 class="booking_ins" id="maabag_ins">Booking Instructions :</h3>
+                        <ol class="hotelbooking_ol">
+                            <li class="li">Cash Payment only allowed. </li>
+                            <li class="li">Concerned person will pickup you from the Airport or <br> Bustop and Drop you
+                                at the Hotel by himself.</li>
+                            <li class="li">You can check-in to the hotel and Pay if you like the hotel.</li>
+                            <li class="li">You can change your Hotel at the same time to the best one.</li>
+
+                        </ol>
+                        <span class="total_fare">Total Fare</span>
+                        <span class="total_price maabagla_totalprice">&#8377; 950</span>
+                        <input type="button" class="popup_bookhotel_btn" value="Book Package"
+                            onclick="maabagpackage_popup_btn()">
+                    </div>
+
+                    <!--                              Maa Baglamukhi Tour Confirmation      -->
+
+                    <div id="maabagConfirmation_popupdiv" style="display: none;">
+                        <div class="fisrt_sec_popup">
+                            <h3 class="popup_pujabooking_h3">Package Booking</h3>
+                            <img class="close_icon" src="../Images/close icon.png"
+                                onclick="maabagConfirmation_closePopUp()" alt="" srcset="">
+                        </div>
+                        <img class="booking_sucessfull_img" src="../Images/sucessfullybooking_logo.png" alt="">
+                        <h1 class="sucessful_msg">Your Package Booking <br> Confirmed Successfully.</h1>
+                        <h5 class="Agent_msg">Our Agent will pickup you from the Airport or Bustop <br>
+                            and Drop you at the Hotel by himself.</h5>
+                        <h4 class="sucessful_ins">Booking Instructions :</h4>
+                        <ol class="sucessful_ol">
+                            <li class="li">Cash Payment only allowed. </li>
+                            <li class="li">Concerned person will pickup you from the Airport or <br> Bustop and Drop you
+                                at the Hotel by himself.</li>
+                            <li class="li">You can check-in to the hotel and Pay if you like the hotel.</li>
+                            <li class="li">You can change your Hotel at the same time to the best one.</li>
+                        </ol>
+                        <span class="total_fare">Total Fare</span> <span class="total_price maabagla_totalprice">&#8377;
+                            950</span> <br>
+                        <!-- <div class="details_div">
+                            <div class="prof_div">
+                                <img class="profile_img" src="../Images/profile img.png" alt="">
+                                <div class="prof_details_div">
+                                    <span class="prof_name">Haswith Kumar</span> <br>
+                                    <span class="prof_no">Mobile: +91 9876543210</span>
+                                </div>
+                            </div>
+                            <div class="whats_msg_div">
+                                <img class="whats_msg_imgs" src="../Images/whatsapp logo.png" alt="">
+                                <img class="whats_msg_imgs" src="../Images/message icon.png" alt="">
+                            </div>
+                        </div> -->
+
+                    </div>
+
+
+
+                </div>
+                                    <!--    img  Loader  while fetching data from API...    -->
+
+                            <div id="Maabagla_TopVisited_loader" class="Top_loader ">
+                                <!-- <div class="loader"></div> -->
+                                <img class="Loader_img zoom-in-zoom-out" src="../Images/ujjain_logo_png.png" alt="">
+                            </div>
+
+                        
+
+
+            </section>
+
+            <section class="nearby-visiting-places-sec">
+
+                <h3 style="margin-top: 0%;">Top Visited Hotels</h3>
+
+                <div id="home_top_rated_divs">
+                    <div #swiperRef="" class="swiper mySwiper" id="swiper_maabag_down">
+                        <div class="swiper-wrapper" id="swiper-wrapper_maabag_down">
+
+                           
+
+                            <div class="swiper-slide maabag_slides_down"> </div>
+                            <div class="swiper-slide maabag_slides_down"> </div>
+                           
+
+
+                        </div>
+
+                    </div>
+                    <div class="next_prev_btn_maabag_down_div">
+                        <div class="swiper-button-next" id="swiper-button-next_maabag_down"
+                            onclick="swiperBtn_maabag_down()"></div>
+                        <div class="swiper-button-prev" id="swiper-button-prev_maabag_down"> </div>
+
+                    </div>
+
+
+                </div>
+
+                           <!--    img  Loader  while fetching data from API...    -->
+
+                        <div id="Maabagla_hotels_loader_loader" class="bottum_loader ">                        
+                            <img class="Loader_img_bottum zoom-in-zoom-out" src="../Images/ujjain_logo_png.png" alt="">
+                        </div>
+
+            </section>
+
+        </main>
+
+
+        <!--                  Taxi services starts from here  -->
+
+        <main id="TaxiServices_main">
+
+            <section id="Taxi_top-visited-places-sec">
+                <h3 style="margin-bottom: 10px;">Top Visited Places</h3>
+
+                <div id="Taxi_top-visited-places-div">
+
+
+                    <div #swiperRef="" class="swiper mySwiper" id="swiper_taxi_up">
+                        <div class="swiper-wrapper" id="swiper-wrapper_taxi_up">
+
+                            <div class="swiper-slide">
+                                <div class="top_visited_contents_div">
+                                    <img src="../Images/image 1.PNG " class="ujjain-dharshan_imgs" alt="hotel_img1">
+                                    <div class="rating_div">
+                                        <i class="fa fa-star checked"></i>
+                                        <span class="rating_span">4.5</span>
+                                    </div>
+                                    <h3 class="ujjain_place_name">Ram Ghat</h3>
+                                    <div class="destinatio_km_div">
+                                        <img class="ujjain_desti_img" src="../Images/destination_popup_icon.png" alt=""
+                                            srcset="">
+                                        <span class="ujjain_km">2.3 km</span>
+                                    </div>
+                                    <input type="button" class="Topvisited_maabag_btn" value="Book a Ride"
+                                        onclick="Taxifirstcard()">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="top_visited_contents_div">
+                                    <img src="../Images/image 2.PNG " class="ujjain-dharshan_imgs" alt="hotel_img1">
+                                    <div class="rating_div">
+                                        <i class="fa fa-star checked"></i>
+                                        <span class="rating_span">4.5</span>
+                                    </div>
+                                    <h3 class="ujjain_place_name">Mahakaleshwar Temple</h3>
+                                    <div class="destinatio_km_div">
+                                        <img class="ujjain_desti_img" src="../Images/destination_popup_icon.png" alt=""
+                                            srcset="">
+                                        <span class="ujjain_km">2.3 km</span>
+                                    </div>
+                                    <input type="button" class="Topvisited_maabag_btn" value="Book a Ride" onclick="">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="top_visited_contents_div">
+                                    <img src="../Images/image 2.PNG " class="ujjain-dharshan_imgs" alt="hotel_img1">
+                                    <div class="rating_div">
+                                        <i class="fa fa-star checked"></i>
+                                        <span class="rating_span">4.5</span>
+                                    </div>
+                                    <h3 class="ujjain_place_name">Mahakaleshwar Temple</h3>
+                                    <div class="destinatio_km_div">
+                                        <img class="ujjain_desti_img" src="../Images/destination_popup_icon.png" alt=""
+                                            srcset="">
+                                        <span class="ujjain_km">2.3 km</span>
+                                    </div>
+                                    <input type="button" class="Topvisited_maabag_btn" value="Book a Ride" onclick="">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="top_visited_contents_div">
+                                    <img src="../Images/image 3.PNG " class="ujjain-dharshan_imgs" alt="hotel_img1">
+                                    <div class="rating_div">
+                                        <i class="fa fa-star checked"></i>
+                                        <span class="rating_span">4.5</span>
+                                    </div>
+                                    <h3 class="ujjain_place_name">Kaliadeh Palace</h3>
+                                    <div class="destinatio_km_div">
+                                        <img class="ujjain_desti_img" src="../Images/destination_popup_icon.png" alt=""
+                                            srcset="">
+                                        <span class="ujjain_km">2.3 km</span>
+                                    </div>
+                                    <input type="button" class="Topvisited_maabag_btn" value="Book a Ride" onclick="">
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                    <div class="next_prev_btn_taxi_up_div">
+                        <div class="swiper-button-next" id="swiper-button-next_taxi_up" onclick="swiperBtn_taxi_up()">
+                        </div>
+                        <div class="swiper-button-prev" id="swiper-button-prev_taxi_up"> </div>
+                        <!-- <div class="swiper-pagination"></div> -->
+                    </div>
+
+                </div>
+
+
+                <!--    Taxi popup            -->
+
+                <div id="taxi_popup" style=" display: none; position: relative;">
+
+                    <div id="taxi_popupdiv">
+                        <div class="fisrt_sec_popup">
+                            <h3 class="popup_pujabooking_h3"> Book a Taxi</h3>
+                            <img class="close_icon" src="../Images/close icon.png" onclick="Taxibooking_closePopUp()"
+                                alt="" srcset="">
+                        </div>
+
+                        <form class="taxi_inputs_div" id="taxi">
+
+                            <input class="taxi_Sinputs" type="text"  id="taxipickup" placeholder="Pick up from..">
+                            <img class="taxi_location_icon" src="../Images/Location icon.png" alt="">                  <br>
+                            <input class="taxi_Sinputs" type="text" id="taxi-drop" placeholder="Search for Destination..">
+                            <img class="taxi_search_icon" src="../Images/searchl_icon.png" alt="" srcset="">
+                      
+
+                            <h3 class="booking_ins taxiins">Booking Instructions :</h3>
+                            <ol class="hotelbooking_ol">
+                                <li class="li">Cash Payment only allowed. </li>
+                                <li class="li">Concerned person will pickup you from the Airport or <br> Bustop and Drop you
+                                    at the Hotel by himself.</li>
+                                <li class="li">You can check-in to the hotel and Pay if you like the hotel.</li>
+                                <li class="li">You can change your Hotel at the same time to the best one.</li>
+
+                            </ol>
+                            <span class="total_fare">Total Fare</span>
+                            <span class="total_price taxi_price_inpoup ">&#8377; 100</span>
+                            <input type="submit" class="popup_bookhotel_btn" value="Book Taxi"
+                                onclick="taxibook_popup_btn()">
+
+                        </form>
+
+                    </div>
+                    <!--            Taxi Confirmation Popup       -->
+
+                    <div id="taxi_confirmation_popup_div" style="display: none;">
+
+                        <div class="fisrt_sec_popup">
+                            <h3 class="popup_pujabooking_h3"> Book a Taxi</h3>
+                            <img class="close_icon" src="../Images/close icon.png" onclick="Taxiconfirm_closePopUp()"
+                                alt="" srcset="">
+                        </div>
+
+                        <img class="booking_sucessfull_img taxiconfirmsucimg"
+                            src="../Images/sucessfullybooking_logo.png" alt="">
+                        <h1 class="sucessful_msg taxiconfirmsucmsg">Your Taxi Booking <br> Confirmed Successfully.</h1>
+
+                        <h5 class="Agent_msg">Our Agent will pickup you from the Airport or Bustop <br>
+                            and Drop you at the Hotel by himself.</h5>
+
+                        <!-- <h3 class="taxiconfir_h3"> Available Taxi</h3>
+
+                        <div class="details_div taxiconfirmdd">
+                            <div class="prof_div taxiconfirmprofdiv">
+                                <img class="profile_img" src="../Images/profile img.png" alt="">
+                                <div class="prof_details_div">
+                                    <span class="prof_name">Chaithanya Kumar</span> <br>
+                                    <span class="prof_no">Mobile: +91 9876543210</span>
+                                </div>
+                                <img class="whats_msg_imgs_taxi" src="../Images/whatsapp logo.png" alt="">
+                            </div>
+                            <div class="prof_div taxiconfirmprofdiv">
+                                <div class="divs_pr_ru">
+                                    <img class="pr_icon" src="../Images/pr_icon.png" alt=""> 4
+                                </div>
+                                <div class="divs_pr_ru">
+                                    <img class="pr_icon" src="../Images/car_icon.png" alt=""> MP 12 TZ 2345
+                                </div>
+                                <div class="divs_pr_ru">
+                                    <img class="ru_icon" src="../Images/rupee_icon.png" alt=""> 250
+                                </div>
+                                <img class="taxi_whats_msg_imgs" src="../Images/message icon.png" alt="">
+                            </div>
+                        </div> -->
+
+                        <!-- <div class="details_div taxiconfirmdd">
+                            <div class="prof_div taxiconfirmprofdiv">
+                                <img class="profile_img" src="../Images/profile img.png" alt="">
+                                <div class="prof_details_div">
+                                    <span class="prof_name">Haswith Kumar</span> <br>
+                                    <span class="prof_no">Mobile: +91 9876543210</span>
+                                </div>
+                                <img class="whats_msg_imgs_taxi" src="../Images/whatsapp logo.png" alt="">
+                            </div>
+                            <div class="prof_div taxiconfirmprofdiv">
+                                <div class="divs_pr_ru">
+                                    <img class="pr_icon" src="../Images/pr_icon.png" alt=""> 4
+                                </div>
+                                <div class="divs_pr_ru">
+                                    <img class="pr_icon" src="../Images/car_icon.png" alt=""> MP 12 TZ 2345
+                                </div>
+                                <div class="divs_pr_ru">
+                                    <img class="ru_icon" src="../Images/rupee_icon.png" alt=""> 250
+                                </div>
+                                <img class="taxi_whats_msg_imgs" src="../Images/message icon.png" alt="">
+                            </div>
+                        </div> -->
+
+                    </div>
+                </div> <!--        Taxi  pop up ends here...                -->
+
+            </section>
+
+            <section id="Taxi_nearby-visiting-places-sec">
+
+                <h3 style="margin-top: 0%;">Nearby Famous places</h3>
+
+                <div id="home_top_rated_divs">
+                    <div #swiperRef="" class="swiper mySwiper" id="swiper_taxi_down">
+                        <div class="swiper-wrapper" id="swiper-wrapper_taxi_down">
+
+                            <div class="swiper-slide taxi_slides_down">
+                                <div id="home_top_rated_div">
+                                    <img src="../Images/image 1.PNG" class="home_top_img1" alt="image1">
+                                    <div class="top_visited_rating_div">
+                                        <i class="fa fa-star checked" id="icon"></i>
+                                        <span class="top_visited_rating_span">4.5</span>
+                                    </div>
+                                    <p class="top_visited_hotel_name">Ram Ghat</p>
+                                    <img src="../Images/destination icon.PNG" class="destination-image"
+                                        alt="destination-image">
+                                    <span class="top-visited-km">2.3 km</span>
+                                    <input type="button" id="top_visited_btn" value="Book a Ride">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide taxi_slides_down">
+                                <div id="home_top_rated_div">
+                                    <img src="../Images/image 2.PNG" class="home_top_img1" alt="image1">
+                                    <div class="top_visited_rating_div">
+                                        <i class="fa fa-star checked" id="icon"></i>
+                                        <span class="top_visited_rating_span">4.5</span>
+                                    </div>
+                                    <p class="top_visited_hotel_name">Ram Ghat</p>
+                                    <img src="../Images/destination icon.PNG" class="destination-image"
+                                        alt="destination-image">
+                                    <span class="top-visited-km">2.3 km</span>
+                                    <input type="button" class="top_visited_btn" value="Book a Ride">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide taxi_slides_down">
+                                <div id="home_top_rated_div">
+                                    <img src="../Images/image 3.PNG" class="home_top_img1" alt="image1">
+                                    <div class="top_visited_rating_div">
+                                        <i class="fa fa-star checked" id="icon"></i>
+                                        <span class="top_visited_rating_span">4.5</span>
+                                    </div>
+                                    <p class="top_visited_hotel_name">Ram Ghat</p>
+                                    <img src="../Images/destination icon.PNG" class="destination-image"
+                                        alt="destination-image">
+                                    <span class="top-visited-km">2.3 km</span>
+                                    <input type="button" class="top_visited_btn" value="Book a Ride">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide taxi_slides_down">
+                                <div id="home_top_rated_div">
+                                    <img src="../Images/image 4.PNG" class="home_top_img1" alt="image1">
+                                    <div class="top_visited_rating_div">
+                                        <i class="fa fa-star checked" id="icon"></i>
+                                        <span class="top_visited_rating_span">4.5</span>
+                                    </div>
+                                    <p class="top_visited_hotel_name">Ram Ghat</p>
+                                    <img src="../Images/destination icon.PNG" class="destination-image"
+                                        alt="destination-image">
+                                    <span class="top-visited-km">2.3 km</span>
+                                    <input type="button" class="top_visited_btn" value="Book a Ride">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide taxi_slides_down">
+                                <div id="home_top_rated_div">
+                                    <img src="../Images/image 5.PNG" class="home_top_img1" alt="image1">
+                                    <div class="top_visited_rating_div">
+                                        <i class="fa fa-star checked" id="icon"></i>
+                                        <span class="top_visited_rating_span">4.5</span>
+                                    </div>
+                                    <p class="top_visited_hotel_name">Ram Ghat</p>
+                                    <img src="../Images/destination icon.PNG" class="destination-image"
+                                        alt="destination-image">
+                                    <span class="top-visited-km">2.3 km</span>
+                                    <input type="button" class="top_visited_btn" value="Book a Ride">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide taxi_slides_down">
+                                <div id="home_top_rated_div">
+                                    <img src="../Images/image 1.PNG" class="home_top_img1" alt="image1">
+                                    <div class="top_visited_rating_div">
+                                        <i class="fa fa-star checked" id="icon"></i>
+                                        <span class="top_visited_rating_span">4.5</span>
+                                    </div>
+                                    <p class="top_visited_hotel_name">Ram Ghat</p>
+                                    <img src="../Images/destination icon.PNG" class="destination-image"
+                                        alt="destination-image">
+                                    <span class="top-visited-km">2.3 km</span>
+                                    <input type="button" id="top_visited_btn" value="Book a Ride">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide taxi_slides_down">
+                                <div id="home_top_rated_div">
+                                    <img src="../Images/image 2.PNG" class="home_top_img1" alt="image1">
+                                    <div class="top_visited_rating_div">
+                                        <i class="fa fa-star checked" id="icon"></i>
+                                        <span class="top_visited_rating_span">4.5</span>
+                                    </div>
+                                    <p class="top_visited_hotel_name">Ram Ghat</p>
+                                    <img src="../Images/destination icon.PNG" class="destination-image"
+                                        alt="destination-image">
+                                    <span class="top-visited-km">2.3 km</span>
+                                    <input type="button" class="top_visited_btn" value="Book a Ride">
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="next_prev_btn_taxi_down_div">
+                        <div class="swiper-button-next" id="swiper-button-next_taxi_down"
+                            onclick="swiperBtn_taxi_down()"></div>
+                        <div class="swiper-button-prev" id="swiper-button-prev_taxi_down"> </div>
+
+                    </div>
+
+
+
+                </div>
+
+            </section>
+
+
+
+
+
+        </main>
+
+
+
+
+        <!--           Airport Rides main starts from here.............     -->
+
+
+
+        <main id="AirportRides_main">
+
+            <section id="Airport_top-visited-places-sec">
+
+                <h3 style="margin-bottom: 10px;">Top Visited Places</h3>
+
+                <div id="Airport_top-visited-places-div">
+
+                    <div #swiperRef="" class="swiper mySwiper" id="swiper_airport_up">
+                        <div class="swiper-wrapper" id="swiper-wrapper_airport_up">
+
+                            <div class="swiper-slide">
+                                <div class="top_visited_contents_div">
+                                    <img src="../Images/image 1.PNG " class="ujjain-dharshan_imgs" alt="hotel_img1">
+                                    <div class="rating_div">
+                                        <i class="fa fa-star checked"></i>
+                                        <span class="rating_span">4.5</span>
+                                    </div>
+                                    <h3 class="ujjain_place_name">Ram Ghat</h3>
+                                    <div class="destinatio_km_div">
+                                        <img class="ujjain_desti_img" src="../Images/destination_popup_icon.png" alt=""
+                                            srcset="">
+                                        <span class="ujjain_km">2.3 km</span>
+                                    </div>
+                                    <input type="button" class="Topvisited_maabag_btn" value="Book a Ride"
+                                        onclick="Airportfirstcard()">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="top_visited_contents_div">
+                                    <img src="../Images/image 2.PNG " class="ujjain-dharshan_imgs" alt="hotel_img1">
+                                    <div class="rating_div">
+                                        <i class="fa fa-star checked"></i>
+                                        <span class="rating_span">4.5</span>
+                                    </div>
+                                    <h3 class="ujjain_place_name">Mahakaleshwar Temple</h3>
+                                    <div class="destinatio_km_div">
+                                        <img class="ujjain_desti_img" src="../Images/destination_popup_icon.png" alt=""
+                                            srcset="">
+                                        <span class="ujjain_km">2.3 km</span>
+                                    </div>
+                                    <input type="button" class="Topvisited_maabag_btn" value="Book a Ride"
+                                        onclick="Airportfirstcard()">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="top_visited_contents_div">
+                                    <img src="../Images/image 2.PNG " class="ujjain-dharshan_imgs" alt="hotel_img1">
+                                    <div class="rating_div">
+                                        <i class="fa fa-star checked"></i>
+                                        <span class="rating_span">4.5</span>
+                                    </div>
+                                    <h3 class="ujjain_place_name">Mahakaleshwar Temple</h3>
+                                    <div class="destinatio_km_div">
+                                        <img class="ujjain_desti_img" src="../Images/destination_popup_icon.png" alt=""
+                                            srcset="">
+                                        <span class="ujjain_km">2.3 km</span>
+                                    </div>
+                                    <input type="button" class="Topvisited_maabag_btn" value="Book a Ride" onclick="">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="top_visited_contents_div">
+                                    <img src="../Images/image 3.PNG " class="ujjain-dharshan_imgs" alt="hotel_img1">
+                                    <div class="rating_div">
+                                        <i class="fa fa-star checked"></i>
+                                        <span class="rating_span">4.5</span>
+                                    </div>
+                                    <h3 class="ujjain_place_name">Kaliadeh Palace</h3>
+                                    <div class="destinatio_km_div">
+                                        <img class="ujjain_desti_img" src="../Images/destination_popup_icon.png" alt=""
+                                            srcset="">
+                                        <span class="ujjain_km">2.3 km</span>
+                                    </div>
+                                    <input type="button" class="Topvisited_maabag_btn" value="Book a Ride" onclick="">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide"></div>
+                            <div class="swiper-slide"></div>
+                            <div class="swiper-slide"></div>
+                            <div class="swiper-slide"></div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="next_prev_btn_airport_up_div">
+                        <div class="swiper-button-next" id="swiper-button-next_airport_up"
+                            onclick="swiperBtn_airport_up()"></div>
+                        <div class="swiper-button-prev" id="swiper-button-prev_airport_up"> </div>
+                        <!-- <div class="swiper-pagination"></div> -->
+                    </div>
+
+                </div>
+
+                <!--    Airport popup            -->
+
+                <div id="Airport_popup" style=" display: none; position: relative;">
+
+                    <div id="Airport_popupdiv">
+                        <div class="fisrt_sec_popup">
+                            <h3 class="popup_pujabooking_h3"> Book Taxi to Airport</h3>
+                            <img class="close_icon" src="../Images/close icon.png" onclick="Airportbooking_closePopUp()"
+                                alt="" srcset="">
+                        </div>
+
+
+                        <form class="taxi_inputs_div" id="airport">
+                            <input class="taxi_Sinputs airportfinput" type="text" id="airport-pickup" placeholder="Ujjain Airport">
+                            <img class="taxi_location_icon" src="../Images/Location icon.png" alt=""> <br>
+                            <input class="taxi_Sinputs airportfinput" type="text" id="airport-drop" placeholder="Search for Destination..">
+                            <img class="taxi_search_icon" src="../Images/searchl_icon.png" alt="" srcset="">
+                 
+    
+                            <h3 class="booking_ins taxiins">Booking Instructions :</h3>
+                            <ol class="hotelbooking_ol">
+                                <li class="li">Cash Payment only allowed. </li>
+                                <li class="li">Concerned person will pickup you from the Airport or <br> Bustop and Drop you
+                                    at the Hotel by himself.</li>
+                                <li class="li">You can check-in to the hotel and Pay if you like the hotel.</li>
+                                <li class="li">You can change your Hotel at the same time to the best one.</li>
+    
+                            </ol>
+                            <span class="total_fare">Total Fare</span>
+                            <span class="total_price ">&#8377; 950</span>
+                            <input type="submit" class="popup_bookhotel_btn" value="Book Taxi"
+                                onclick="Airportbook_popup_btn()">
+                        </form>
+
+
+                    </div>
+                    <!--            Airport Confirmation Popup       -->
+
+                    <div id="Airport_confirmation_popup_div" style="display: none;">
+
+                        <div class="fisrt_sec_popup">
+                            <h3 class="popup_pujabooking_h3"> Airport Taxi Confirmation</h3>
+                            <img class="close_icon" src="../Images/close icon.png" onclick="Airportconfirm_closePopUp()"
+                                alt="" srcset="">
+                        </div>
+
+                        <img class="booking_sucessfull_img taxiconfirmsucimg"
+                            src="../Images/sucessfullybooking_logo.png" alt="">
+                        <h1 class="sucessful_msg taxiconfirmsucmsg">Your Airport Booking <br> Confirmed Successfully.</h1>
+
+                        <h5 class="Agent_msg">Our Agent will pickup you from the Airport or Bustop <br>
+                            and Drop you at the Hotel by himself.</h5>
+
+                        <!-- <h3 class="taxiconfir_h3"> Available Taxi</h3> -->
+
+                        <!-- <div class="details_div taxiconfirmdd">
+                            <div class="prof_div taxiconfirmprofdiv">
+                                <img class="profile_img" src="../Images/profile img.png" alt="">
+                                <div class="prof_details_div">
+                                    <span class="prof_name">Chaithanya Kumar</span> <br>
+                                    <span class="prof_no">Mobile: +91 9876543210</span>
+                                </div>
+                                <img class="whats_msg_imgs_taxi" src="../Images/whatsapp logo.png" alt="">
+                            </div>
+                            <div class="prof_div taxiconfirmprofdiv">
+                                <div class="divs_pr_ru">
+                                    <img class="pr_icon" src="../Images/pr_icon.png" alt=""> 4
+                                </div>
+                                <div class="divs_pr_ru">
+                                    <img class="pr_icon" src="../Images/car_icon.png" alt=""> MP 12 TZ 2345
+                                </div>
+                                <div class="divs_pr_ru">
+                                    <img class="ru_icon" src="../Images/rupee_icon.png" alt=""> 250
+                                </div>
+                                <img class="taxi_whats_msg_imgs" src="../Images/message icon.png" alt="">
+                            </div>
+                        </div> -->
+
+                        <!-- <div class="details_div taxiconfirmdd">
+                            <div class="prof_div taxiconfirmprofdiv">
+                                <img class="profile_img" src="../Images/profile img.png" alt="">
+                                <div class="prof_details_div">
+                                    <span class="prof_name">Haswith Kumar</span> <br>
+                                    <span class="prof_no">Mobile: +91 9876543210</span>
+                                </div>
+                                <img class="whats_msg_imgs_taxi" src="../Images/whatsapp logo.png" alt="">
+                            </div>
+                            <div class="prof_div taxiconfirmprofdiv">
+                                <div class="divs_pr_ru">
+                                    <img class="pr_icon" src="../Images/pr_icon.png" alt=""> 4
+                                </div>
+                                <div class="divs_pr_ru">
+                                    <img class="pr_icon" src="../Images/car_icon.png" alt=""> MP 12 TZ 2345
+                                </div>
+                                <div class="divs_pr_ru">
+                                    <img class="ru_icon" src="../Images/rupee_icon.png" alt=""> 250
+                                </div>
+                                <img class="taxi_whats_msg_imgs" src="../Images/message icon.png" alt="">
+                            </div>
+                        </div> -->
+
+                    </div>
+                </div> <!--        Airport  pop up ends here...                -->
+
+            </section>
+
+            <section id="Airport_nearby-visiting-places-sec">
+
+                <h3 style="margin-top: 0%;">Nearby Famous places</h3>
+
+                <div id="home_top_rated_divs">
+                    <div #swiperRef="" class="swiper mySwiper" id="swiper_airport_down">
+                        <div class="swiper-wrapper" id="swiper-wrapper_airport_down">
+
+                            <div class="swiper-slide airport_slides_down">
+                                <div id="home_top_rated_div">
+                                    <img src="../Images/image 1.PNG" class="home_top_img1" alt="image1">
+                                    <div class="top_visited_rating_div">
+                                        <i class="fa fa-star checked" id="icon"></i>
+                                        <span class="top_visited_rating_span">4.5</span>
+                                    </div>
+                                    <p class="top_visited_hotel_name">Ram Ghat</p>
+                                    <img src="../Images/destination icon.PNG" class="destination-image"
+                                        alt="destination-image">
+                                    <span class="top-visited-km">2.3 km</span>
+                                    <input type="button" id="top_visited_btn" value="Book a Ride">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide airport_slides_down">
+                                <div id="home_top_rated_div">
+                                    <img src="../Images/image 2.PNG" class="home_top_img1" alt="image1">
+                                    <div class="top_visited_rating_div">
+                                        <i class="fa fa-star checked" id="icon"></i>
+                                        <span class="top_visited_rating_span">4.5</span>
+                                    </div>
+                                    <p class="top_visited_hotel_name">Ram Ghat</p>
+                                    <img src="../Images/destination icon.PNG" class="destination-image"
+                                        alt="destination-image">
+                                    <span class="top-visited-km">2.3 km</span>
+                                    <input type="button" class="top_visited_btn" value="Book a Ride">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide airport_slides_down">
+                                <div id="home_top_rated_div">
+                                    <img src="../Images/image 3.PNG" class="home_top_img1" alt="image1">
+                                    <div class="top_visited_rating_div">
+                                        <i class="fa fa-star checked" id="icon"></i>
+                                        <span class="top_visited_rating_span">4.5</span>
+                                    </div>
+                                    <p class="top_visited_hotel_name">Ram Ghat</p>
+                                    <img src="../Images/destination icon.PNG" class="destination-image"
+                                        alt="destination-image">
+                                    <span class="top-visited-km">2.3 km</span>
+                                    <input type="button" class="top_visited_btn" value="Book a Ride">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide airport_slides_down">
+                                <div id="home_top_rated_div">
+                                    <img src="../Images/image 4.PNG" class="home_top_img1" alt="image1">
+                                    <div class="top_visited_rating_div">
+                                        <i class="fa fa-star checked" id="icon"></i>
+                                        <span class="top_visited_rating_span">4.5</span>
+                                    </div>
+                                    <p class="top_visited_hotel_name">Ram Ghat</p>
+                                    <img src="../Images/destination icon.PNG" class="destination-image"
+                                        alt="destination-image">
+                                    <span class="top-visited-km">2.3 km</span>
+                                    <input type="button" class="top_visited_btn" value="Book a Ride">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide airport_slides_down">
+                                <div id="home_top_rated_div">
+                                    <img src="../Images/image 5.PNG" class="home_top_img1" alt="image1">
+                                    <div class="top_visited_rating_div">
+                                        <i class="fa fa-star checked" id="icon"></i>
+                                        <span class="top_visited_rating_span">4.5</span>
+                                    </div>
+                                    <p class="top_visited_hotel_name">Ram Ghat</p>
+                                    <img src="../Images/destination icon.PNG" class="destination-image"
+                                        alt="destination-image">
+                                    <span class="top-visited-km">2.3 km</span>
+                                    <input type="button" class="top_visited_btn" value="Book a Ride">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide airport_slides_down">
+                                <div id="home_top_rated_div">
+                                    <img src="../Images/image 1.PNG" class="home_top_img1" alt="image1">
+                                    <div class="top_visited_rating_div">
+                                        <i class="fa fa-star checked" id="icon"></i>
+                                        <span class="top_visited_rating_span">4.5</span>
+                                    </div>
+                                    <p class="top_visited_hotel_name">Ram Ghat</p>
+                                    <img src="../Images/destination icon.PNG" class="destination-image"
+                                        alt="destination-image">
+                                    <span class="top-visited-km">2.3 km</span>
+                                    <input type="button" id="top_visited_btn" value="Book a Ride">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide airport_slides_down">
+                                <div id="home_top_rated_div">
+                                    <img src="../Images/image 2.PNG" class="home_top_img1" alt="image1">
+                                    <div class="top_visited_rating_div">
+                                        <i class="fa fa-star checked" id="icon"></i>
+                                        <span class="top_visited_rating_span">4.5</span>
+                                    </div>
+                                    <p class="top_visited_hotel_name">Ram Ghat</p>
+                                    <img src="../Images/destination icon.PNG" class="destination-image"
+                                        alt="destination-image">
+                                    <span class="top-visited-km">2.3 km</span>
+                                    <input type="button" class="top_visited_btn" value="Book a Ride">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide airport_slides_down"></div>
+                            <div class="swiper-slide airport_slides_down"></div>
+
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="next_prev_btn_airport_down_div">
+                        <div class="swiper-button-next" id="swiper-button-next_airport_down"
+                            onclick="swiperBtn_airport_down()"></div>
+                        <div class="swiper-button-prev" id="swiper-button-prev_airport_down"> </div>
+
+                    </div>
+
+
+                </div>
+            </section>
+        </main>
+
+
+
+        <main id="shopping_main">
+
+
+            <section id="About_shopping">
+
+                <h3>Trending</h3>
+
+                <div id="about_shopping_divs">
+                    <div #swiperref="" class="swiper mySwiper swiper-initialized swiper-horizontal swiper-backface-hidden"id="swiper_shopping_down">
+                        
+                        <div class="swiper-wrapper" id="swiper-wrapper_shopping_down" aria-live="polite"
+                            style="transition-duration: 0ms; transition-delay: 0ms; transform: translate3d(392px, 0px, 0px);">
+
+                            <div class="swiper-slide shopping_slides"></div>
+                            <div class="swiper-slide shopping_slides"></div>
+                            <div class="swiper-slide shopping_slides"></div>
+                            <div class="swiper-slide shopping_slides"></div>
+                           
+                            <!-- <div class="swiper-slide shopping_slides"></div>
+                            <div class="swiper-slide shopping_slides"></div>
+                            <div class="swiper-slide shopping_slides"></div>
+                            <div class="swiper-slide shopping_slides"></div> -->
+                            
+
+
+                        </div>
+
+                        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                    </div>
+
+                    <div class="next_prev_btn_shopping_down_div">
+                        <div class="swiper-button-next" id="swiper-button-next_shopping_down"
+                            onclick="swiperBtn_shopping_down()" tabindex="0" role="button" aria-label="Next slide"
+                            aria-controls="swiper-wrapper_shopping_down" aria-disabled="false"></div>
+                        <div class="swiper-button-prev swiper-button-disabled" id="swiper-button-prev_shopping_down"
+                            tabindex="-1" role="button" aria-label="Previous slide"
+                            aria-controls="swiper-wrapper_shopping_down" aria-disabled="true"> </div>
+
+                    </div>
+
+
+                </div>
+
+                                  <!--    img  Loader  while fetching data from API...    -->
+
+                            <div id="Shopping_loader" class="Top_loader ">
+                                <!-- <div class="loader"></div> -->
+                                <img class="Loader_img zoom-in-zoom-out" src="../Images/ujjain_logo_png.png" alt="">
+                            </div>
+
+
+         <!-------------------------------------------shopping module popup---------------------------------------------->
+ 
+            <div id="shopping_popup" style="display: none;">
+ 
+                        <div id="shopPackageBooking_popupdiv">
+                            <div class="shoppingfisrt_sec_popup">
+                                <h3 class="popup_shopping_h3"> Booking Items</h3>
+                                <img class="shoppingclose_icon" src="../Images/close icon.png"
+                                    onclick="shoppingBooking_closePopUp()" alt="" srcset="">
+                            </div>
+                           
+        
+                            <div class="shoppingscrolling-container10">
+                                <div class="shopping_package_divs">
+                                    <img id="shopping_poup_img" class="shoppingPackage_imgs shop-api-card-img02" src="../Images/Kaalsarp Dosha Puja img.png" alt=""
+                                        srcset="">
+                                    <div style="display: flex;">
+                                        <div>
+                                            <span class="shoppingNames shopping-api-popup-name01" id="shopping_name_inpoup">Kaalsarp Dosha Puja</span>
+                                            <div class="quatity-line01">
+                                                <p class="qty">Qty :</p>
+                                                <div class="counting-box01">
+                                                    <div class="minus-container" id="minus01">
+                                                        -
+                                                    </div>
+                                                    <div class="num-container" id="number">
+                                                        0
+                                                    </div>
+                                                    <div class="plus-container" id="plus01">
+                                                        +
+                                                    </div>
+                                                
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span  class="shoppingPackage_pricenum shopping_popup_price">&#8377; 500</span>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                            </div>
+
+                            <h3 class="booking_ins" style="margin-top: 150px;">Booking Instructions :</h3>
+                            <ol class="hotelbooking_ol">
+                                <li class="li">Cash Payment only allowed. </li>
+                            <li class="li">Concerned person will pickup your item from the Nearby shop and Drop it to
+                                you
+                                at the Hotel by himself. </li>
+                            <li class="li">You can pay the money at the hotel to the Delivery Agent.</li>
+                           
+        
+                            </ol>
+                            <div class="total-items01">
+                                <p>Total Items</p>
+                                <p class="conting-numbers01">1</p>
+                            </div>
+                            <div>
+                                <span class="total_fare">Total Fare</span>
+                                <span class="shoppingPackage_totalprice shopping_popup_price" id="Package_totalprice">500</span>
+                            </div>
+                        
+                            <input type="button" onclick="shopconfirmation()"  class="shopping_bookhotel_btn" value="Order Now">
+        
+                        </div>
+ 
+ 
+ 
+ 
+                     <!-- shopping Confirmation Div -->
+ 
+                    <div id="shoppingConfirmation_popup_div" style="display: none;">
+        
+                        <div class="fisrt_sec_popup">
+                            <h3 class="popup_pujabooking_h3"> Booking Items</h3>
+                            <img class="close_icon" src="../Images/close icon.png"
+                                onclick="ShoppingConfirmation_closePopUp()" alt="" srcset="">
+                        </div>
+                        <img class="booking_sucessfull_img" src="../Images/sucessfullybooking_logo.png" alt="">
+                        <h1 class="sucessful_msg">Your Package Booking <br> Confirmed Successfully.</h1>
+                        <h5 class="Agent_msg">Our Agent will pickup your item from the Nearby shop <br> and Drop it to you at Hotel by himself.</h5>
+                        <h4 class="sucessful_ins">Booking Instructions :</h4>
+                        <ol class="sucessful_ol">
+                           
+                            <li class="li">Cash Payment only allowed. </li>
+                            <li class="li">Concerned person will pickup your item from the Nearby shop and Drop it to
+                                you
+                                at the Hotel by himself. </li>
+                            <li class="li">You can pay the money at the hotel to the Delivery Agent.</li>
+                           
+                        </ol>
+                        <div class="total-items01">
+                            <p>Total Items</p>
+                            <p class="conting-numbers01">1</p>
+                        </div>
+                        <div class="total-fare01">
+                            <span class="total_fare">Total Fare</span> <span class="total_price shopping_popup_price shopping-api-amount01">&#8377;
+                                950</span> <br>
+        
+                        </div>
+                    
+                        <div class="whats_msg_div100">
+                                Done
+                        
+                        </div>
+ 
+                   
+               
+ 
+                     </div>
+ 
+ 
+            </div>
+
+
+
+
+
+
+            </section> <!-- shopping slides ends here -->
+
+            <section id="About_gallery">
+
+                <h3>Most Sellings</h3>
+
+                <div id="about_gallery_divs">
+                    <div #swiperref=""
+                        class="swiper mySwiper swiper-initialized swiper-horizontal swiper-backface-hidden"
+                        id="swiper_gallery_down">
+                        <div class="swiper-wrapper" id="swiper-wrapper_gallery_down" aria-live="polite"
+                            style="transition-duration: 0ms; transition-delay: 0ms; transform: translate3d(392px, 0px, 0px);">
+
+
+
+                            <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 7" style="width: 166px; margin-right: 30px;">
+                                <div class="Ujjain_FamousPujas_div gallerydivs_contents">
+                                    <img src="../Images/shoppingimg1.png" class="Ujjain_FamousPujas_imgs galleryimg"
+                                        alt="" srcset="">
+                                    <div class="Famous_Location_pujaname_div">
+
+                                        <span class="Famous_Temple_name">Rudraksha Mala</span>
+
+
+
+                                    </div>
+                                    <div class="price-div">
+                                        <span class="shopping-price">&#8377; 499</span>
+                                        <div class="shop-button">
+                                            <input type="button" class="shopping-down-btn" value="Order Now">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 7" style="width: 166px; margin-right: 30px;">
+                                <div class="Ujjain_FamousPujas_div gallerydivs_contents">
+                                    <img src="../Images/shoppingimg2.png" class="Ujjain_FamousPujas_imgs galleryimg"
+                                        alt="" srcset="">
+                                    <div class="Famous_Location_pujaname_div">
+
+                                        <span class="Famous_Temple_name">1 Mukhi Rudraksha</span>
+
+
+
+                                    </div>
+                                    <div class="price-div">
+                                        <span class="shopping-price">&#8377; 1060</span>
+                                        <div class="shop-button">
+                                            <input type="button" class="shopping-down-btn" value="Order Now">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 7" style="width: 166px; margin-right: 30px;">
+                                <div class="Ujjain_FamousPujas_div gallerydivs_contents">
+                                    <img src="../Images/shoppingimg3.png" class="Ujjain_FamousPujas_imgs galleryimg"
+                                        alt="" srcset="">
+                                    <div class="Famous_Location_pujaname_div">
+
+                                        <span class="Famous_Temple_name">Varalakshmi Gold Chain</span>
+
+
+
+                                    </div>
+                                    <div class="price-div">
+                                        <span class="shopping-price">&#8377; 1999</span>
+                                        <div class="shop-button">
+                                            <input type="button" class="shopping-down-btn" value="Order Now">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+
+                            <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 7" style="width: 166px; margin-right: 30px;">
+                                <div class="Ujjain_FamousPujas_div gallerydivs_contents">
+                                    <img src="../Images/shoppingimg4.png" class="Ujjain_FamousPujas_imgs galleryimg"
+                                        alt="" srcset="">
+                                    <div class="Famous_Location_pujaname_div">
+
+                                        <span class="Famous_Temple_name">Aadita Gold-Plated Chain</span>
+
+
+
+                                    </div>
+                                    <div class="price-div">
+                                        <span class="shopping-price">&#8377; 1989</span>
+                                        <div class="shop-button">
+                                            <input type="button" class="shopping-down-btn" value="Order Now">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 7" style="width: 166px; margin-right: 30px;">
+                                <div class="Ujjain_FamousPujas_div gallerydivs_contents">
+                                    <img src="../Images/shoppingimg5.png" class="Ujjain_FamousPujas_imgs galleryimg"
+                                        alt="" srcset="">
+                                    <div class="Famous_Location_pujaname_div">
+
+                                        <span class="Famous_Temple_name">Earrings-Colour Stones</span>
+
+
+
+                                    </div>
+                                    <div class="price-div">
+                                        <span class="shopping-price">&#8377; 200</span>
+                                        <div class="shop-button">
+                                            <input type="button" class="shopping-down-btn" value="Order Now">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 7" style="width: 166px; margin-right: 30px;"></div>
+                            <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 7" style="width: 166px; margin-right: 30px;"></div>
+                            <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 7" style="width: 166px; margin-right: 30px;"></div>
+                            <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 7" style="width: 166px; margin-right: 30px;"></div>
+
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                            <!-- <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 7"
+                                style="width: 166px; margin-right: 30px;">
+                                <div class="Ujjain_FamousPujas_div gallerydivs_contents">
+                                    <img src="../Images/image 2.PNG" class="Ujjain_FamousPujas_imgs galleryimg" alt=""
+                                        srcset="">
+                                    <div class="Famous_Location_pujaname_div">
+                                        <img src="../Images/Location icon.png" class="Famous_location_img" alt="">
+                                        <span class="Famous_Temple_name">Mahakaleshwar Temple</span>
+                                    </div>
+                                </div>
+                            </div> -->
+
+
+                            <!-- <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 7"
+                                style="width: 166px; margin-right: 30px;">
+                                <div class="Ujjain_FamousPujas_div gallerydivs_contents">
+                                    <img src="../Images/image 1.PNG" class="Ujjain_FamousPujas_imgs galleryimg" alt=""
+                                        srcset="">
+                                    <div class="Famous_Location_pujaname_div">
+                                        <img src="../Images/Location icon.png" class="Famous_location_img" alt="">
+                                        <span class="Famous_Temple_name">Ram Ghat</span>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                         
+
+                           
+
+
+
+                        </div>
+
+                        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                    </div>
+
+                    <div class="next_prev_btn_gallery_down_div">
+                        <div class="swiper-button-next" id="swiper-button-next_gallery_down"
+                            onclick="swiperBtn_gallery_down()" tabindex="0" role="button" aria-label="Next slide"
+                            aria-controls="swiper-wrapper_gallery_down" aria-disabled="false"></div>
+                        <div class="swiper-button-prev swiper-button-disabled" id="swiper-button-prev_gallery_down"
+                            tabindex="-1" role="button" aria-label="Previous slide"
+                            aria-controls="swiper-wrapper_gallery_down" aria-disabled="true"> </div>
+
+                    </div>
+
+
+                </div>
+            </section> <!-- Gallery slides ends here -->
+
+            
+           
+
+
+<!-- 
+            <div id="priya">
+                <p class="Traditionalpujas"> Shopping</p>
+
+                <div class="shopping1">
+
+                    <div class="container01">
+                        <img class="img1-1" src="../puja booking/images/1-img.png" alt="">
+                        <p class="rn1">Rudraksha Mala</p>
+                        <p class="r1"> &#8377 360</p>
+                        <button class="bn1">Order Now</button>
+                    </div>
+
+                    <div class="container02">
+                        <img class="img2" src="../puja booking/images/2-img.png" alt="">
+                        <p class="rn2">1 Mukhi Rudraksha</p>
+                        <p class="r2"> &#8377 360</p>
+                        <button class="bn2">Order Now</button>
+                    </div>
+                    <div class="container03">
+                        <img class="img3" src="../puja booking/images/3-img.png" alt="">
+                        <p class="rn3">Aasita Gold-Plated Chain</p>
+                        <p class="r3"> &#8377 360</p>
+                        <button class="bn3">Order Now</button>
+                    </div>
+                    <div class="container04">
+                        <img class="img4" src="../puja booking/images/4-img.png" alt="">
+                        <p class="rn4">Earrings-Colour Stones</p>
+                        <p class="r4"> &#8377 360</p>
+                        <button class="bn4">Order Now</button>
+                    </div>
+                    <div class="container05">
+                        <img class="img5" src="../puja booking/images/5-img.png" alt="">
+                        <p class="rn5">Kaalsarp Dosha Puja</p>
+                        <p class="r5"> &#8377 360</p>
+                        <button class="bn5">Order Now</button>
+                    </div>
+
+                </div>
+
+
+
+                <p class="Traditionalpujas1"> Photos & Gallery</p>
+
+
+                <div class="shopping2">
+
+                    <div class="container06">
+                        <img class="img6" src="../puja booking/images/6-img.png" alt="">
+                        <img class="img6-1" src="../puja booking/images/location.png" alt="">
+                        <p class="rn6">Mahakaleshwar Temple</p>
+
+                    </div>
+
+                    <div class="container07">
+                        <img class="img7" src="../puja booking/images/7-img.png" alt="">
+                        <img class="img6-2" src="../puja booking/images/location.png" alt="">
+                        <p class="rn7">Ram Ghat</p>
+
+                    </div>
+                    <div class="container08">
+                        <img class="img8" src="../puja booking/images/8-img.png" alt="">
+                        <img class="img6-3" src="../puja booking/images/location.png" alt="">
+                        <p class="rn8">Shree Kal Bhairav Temple</p>
+
+                    </div>
+                    <div class="container09">
+                        <img class="img9" src="../puja booking/images/9-img.png" alt="">
+                        <img class="img6-4" src="../puja booking/images/location.png" alt="">
+                        <p class="rn9">Kalladeh Palace</p>
+
+                    </div>
+                    <div class="container010">
+                        <img class="img10" src="../puja booking/images/10-img.png" alt="">
+                        <img class="img6-5" src="../puja booking/images/location.png" alt="">
+                        <p class="rn10">Mahakaleshwar Temple</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+ -->
+
+
+
+        </main>
+
+        <main id="AboutUjjain_main">
+
+            <img id="about_ujjain_logo" src="../Images/ujjain-darshan.png" alt="" srcset="">
+
+           
+
+
+
+
+
+            <!-- <section id="home_top_rated_sec">
+
+                <h3 style="margin-top: 0%;">Top Visited places</h3>
+
+                <div id="home_top_rated_divs">
+                    <div #swiperref=""
+                        class="swiper mySwiper swiper-initialized swiper-horizontal swiper-backface-hidden"
+                        id="swiper_down">
+                        <div class="swiper-wrapper" id="swiper-wrapper_down" aria-live="polite"
+                            style="transition-duration: 0ms; transition-delay: 0ms; transform: translate3d(392px, 0px, 0px);">
+
+                            <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 8"
+                                style="width: 166px; margin-right: 30px;">
+                                <div id="home_top_rated_div">
+                                    <img src="../Images/image 1.PNG" class="home_top_img1" alt="image1">
+                                    <div class="top_visited_rating_div">
+                                        <i class="fa fa-star checked" id="icon"></i>
+                                        <span class="top_visited_rating_span">4.5</span>
+                                    </div>
+                                    <p class="top_visited_hotel_name">Ram Ghat</p>
+                                    <img src="../Images/destination icon.PNG" class="destination-image"
+                                        alt="destination-image">
+                                    <span class="top-visited-km">2.3 km</span>
+                                    <input type="button" id="top_visited_btn" value="Book a Guide">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 8"
+                                style="width: 166px; margin-right: 30px;">
+                                <div id="home_top_rated_div">
+                                    <img src="../Images/image 2.PNG" class="home_top_img1" alt="image1">
+                                    <div class="top_visited_rating_div">
+                                        <i class="fa fa-star checked" id="icon"></i>
+                                        <span class="top_visited_rating_span">4.5</span>
+                                    </div>
+                                    <p class="top_visited_hotel_name">Ram Ghat</p>
+                                    <img src="../Images/destination icon.PNG" class="destination-image"
+                                        alt="destination-image">
+                                    <span class="top-visited-km">2.3 km</span>
+                                    <input type="button" class="top_visited_btn" value="Book a Guide">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide" role="group" aria-label="3 / 8"
+                                style="width: 166px; margin-right: 30px;">
+                                <div id="home_top_rated_div">
+                                    <img src="../Images/image 3.PNG" class="home_top_img1" alt="image1">
+                                    <div class="top_visited_rating_div">
+                                        <i class="fa fa-star checked" id="icon"></i>
+                                        <span class="top_visited_rating_span">4.5</span>
+                                    </div>
+                                    <p class="top_visited_hotel_name">Ram Ghat</p>
+                                    <img src="../Images/destination icon.PNG" class="destination-image"
+                                        alt="destination-image">
+                                    <span class="top-visited-km">2.3 km</span>
+                                    <input type="button" class="top_visited_btn" value="Book a Guide">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide" role="group" aria-label="4 / 8"
+                                style="width: 166px; margin-right: 30px;">
+                                <div id="home_top_rated_div">
+                                    <img src="../Images/image 4.PNG" class="home_top_img1" alt="image1">
+                                    <div class="top_visited_rating_div">
+                                        <i class="fa fa-star checked" id="icon"></i>
+                                        <span class="top_visited_rating_span">4.5</span>
+                                    </div>
+                                    <p class="top_visited_hotel_name">Ram Ghat</p>
+                                    <img src="../Images/destination icon.PNG" class="destination-image"
+                                        alt="destination-image">
+                                    <span class="top-visited-km">2.3 km</span>
+                                    <input type="button" class="top_visited_btn" value="Book a Guide">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide" role="group" aria-label="5 / 8"
+                                style="width: 166px; margin-right: 30px;">
+                                <div id="home_top_rated_div">
+                                    <img src="../Images/image 5.PNG" class="home_top_img1" alt="image1">
+                                    <div class="top_visited_rating_div">
+                                        <i class="fa fa-star checked" id="icon"></i>
+                                        <span class="top_visited_rating_span">4.5</span>
+                                    </div>
+                                    <p class="top_visited_hotel_name">Ram Ghat</p>
+                                    <img src="../Images/destination icon.PNG" class="destination-image"
+                                        alt="destination-image">
+                                    <span class="top-visited-km">2.3 km</span>
+                                    <input type="button" class="top_visited_btn" value="Book a Guide">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide" role="group" aria-label="6 / 8"
+                                style="width: 166px; margin-right: 30px;">
+                                <div id="home_top_rated_div">
+                                    <img src="../Images/image 1.PNG" class="home_top_img1" alt="image1">
+                                    <div class="top_visited_rating_div">
+                                        <i class="fa fa-star checked" id="icon"></i>
+                                        <span class="top_visited_rating_span">4.5</span>
+                                    </div>
+                                    <p class="top_visited_hotel_name">Ram Ghat</p>
+                                    <img src="../Images/destination icon.PNG" class="destination-image"
+                                        alt="destination-image">
+                                    <span class="top-visited-km">2.3 km</span>
+                                    <input type="button" id="top_visited_btn" value="Book a Guide">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide" role="group" aria-label="7 / 8"
+                                style="width: 166px; margin-right: 30px;">
+                                <div id="home_top_rated_div">
+                                    <img src="../Images/image 2.PNG" class="home_top_img1" alt="image1">
+                                    <div class="top_visited_rating_div">
+                                        <i class="fa fa-star checked" id="icon"></i>
+                                        <span class="top_visited_rating_span">4.5</span>
+                                    </div>
+                                    <p class="top_visited_hotel_name">Ram Ghat</p>
+                                    <img src="../Images/destination icon.PNG" class="destination-image"
+                                        alt="destination-image">
+                                    <span class="top-visited-km">2.3 km</span>
+                                    <input type="button" class="top_visited_btn" value="Book a Guide">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide" role="group" aria-label="8 / 8"
+                                style="width: 166px; margin-right: 30px;"> 7</div>
+
+
+                        </div>
+
+
+                        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                    </div>
+                    <div class="next_prev_btn_down_div">
+                        <div class="swiper-button-next" id="swiper-button-next_down" onclick="swiperBtn_down()"
+                            tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper_down"
+                            aria-disabled="false"></div>
+                        <div class="swiper-button-prev swiper-button-disabled" id="swiper-button-prev_down"
+                            tabindex="-1" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper_down"
+                            aria-disabled="true"> </div>
+
+                    </div>
+
+
+                </div>
+            </section>    home down sec ends here...   -->
+
+            <!-- <section id="Ujjain_FamousPujas_sec">
+                <h3>Traditional Pujas</h3>
+
+                <div class="Ujjain_FamousPujas_divs">
+
+                    <div #swiperref=""
+                        class="swiper mySwiper swiper-initialized swiper-horizontal swiper-backface-hidden"
+                        id="swiper_puja_down">
+                        <div class="swiper-wrapper" id="swiper-wrapper_puja_down" aria-live="polite"
+                            style="transition-duration: 0ms; transition-delay: 0ms; transform: translate3d(392px, 0px, 0px);">
+
+
+                            <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 8"
+                                style="width: 166px; margin-right: 30px;">
+                                <div class="Ujjain_FamousPujas_div">
+                                    <img src="../Images/Kaalsarp Dosha Puja img.png" class="Ujjain_FamousPujas_imgs"
+                                        alt="" srcset="">
+                                    <p class="Famous_puja_name">Kaalsarp Dosha Puja</p>
+                                    <div class="Famous_Location_pujaname_div">
+                                        <img src="../Images/Location icon.png" class="Famous_location_img" alt="">
+                                        <span class="Famous_Temple_name">Shree Kal Bhaira Temple</span>
+                                    </div>
+                                    <span class="Famous_puja_price">₹ 360</span>
+                                    <input type="button" class="Famous_puja_booknow_btn" value="Book Now">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 8"
+                                style="width: 166px; margin-right: 30px;">
+                                <div class="Ujjain_FamousPujas_div">
+                                    <img src="../Images/Kuja Dosha Puja img.png" class="Ujjain_FamousPujas_imgs" alt=""
+                                        srcset="">
+                                    <p class="Famous_puja_name">Kuja Dosha Puja</p>
+                                    <div class="Famous_Location_pujaname_div">
+                                        <img src="../Images/Location icon.png" class="Famous_location_img" alt="">
+                                        <span class="Famous_Temple_name">Shani Deva Temple</span>
+                                    </div>
+                                    <span class="Famous_puja_price">₹ 360</span>
+                                    <input type="button" class="Famous_puja_booknow_btn" value="Book Now">
+                                </div>
+                            </div>
+
+
+                            <div class="swiper-slide" role="group" aria-label="3 / 8"
+                                style="width: 166px; margin-right: 30px;">
+                                <div class="Ujjain_FamousPujas_div">
+                                    <img src="../Images/Mahakal Puja img.png" class="Ujjain_FamousPujas_imgs" alt=""
+                                        srcset="">
+                                    <p class="Famous_puja_name">Mahakal Puja</p>
+                                    <div class="Famous_Location_pujaname_div">
+                                        <img src="../Images/Location icon.png" class="Famous_location_img" alt="">
+                                        <span class="Famous_Temple_name">Mahakaleshwar Temple</span>
+                                    </div>
+                                    <span class="Famous_puja_price">₹ 360</span>
+                                    <input type="button" class="Famous_puja_booknow_btn" value="Book Now">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide" role="group" aria-label="4 / 8"
+                                style="width: 166px; margin-right: 30px;">
+
+                                <div class="Ujjain_FamousPujas_div">
+                                    <img src="../Images/Rudra Abhisheka Puja img.png" class="Ujjain_FamousPujas_imgs"
+                                        alt="" srcset="">
+                                    <p class="Famous_puja_name">Rudra Abhisheka Puja</p>
+                                    <div class="Famous_Location_pujaname_div">
+                                        <img src="../Images/Location icon.png" class="Famous_location_img" alt="">
+                                        <span class="Famous_Temple_name">Mahakaleshwar Temple</span>
+                                    </div>
+                                    <span class="Famous_puja_price">₹ 360</span>
+                                    <input type="button" class="Famous_puja_booknow_btn" value="Book Now">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide" role="group" aria-label="5 / 8"
+                                style="width: 166px; margin-right: 30px;">
+                                <div class="Ujjain_FamousPujas_div">
+                                    <img src="../Images/Kaalsarp Dosha Puja img.png" class="Ujjain_FamousPujas_imgs"
+                                        alt="" srcset="">
+                                    <p class="Famous_puja_name">Kaalsarp Dosha Puja</p>
+                                    <div class="Famous_Location_pujaname_div">
+                                        <img src="../Images/Location icon.png" class="Famous_location_img" alt="">
+                                        <span class="Famous_Temple_name">Shree Kal Bhaira Temple</span>
+                                    </div>
+                                    <span class="Famous_puja_price">₹ 360</span>
+                                    <input type="button" class="Famous_puja_booknow_btn" value="Book Now">
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                    </div>
+
+                    <div class="next_prev_btn_puja_down_div">
+                        <div class="swiper-button-next" id="swiper-button-next_puja_down"
+                            onclick="swiperBtn_puja_down()" tabindex="0" role="button" aria-label="Next slide"
+                            aria-controls="swiper-wrapper_puja_down" aria-disabled="false"></div>
+                        <div class="swiper-button-prev swiper-button-disabled" id="swiper-button-prev_puja_down"
+                            tabindex="-1" role="button" aria-label="Previous slide"
+                            aria-controls="swiper-wrapper_puja_down" aria-disabled="true"> </div>
+
+                    </div>
+                </div>
+
+            </section>    Puja booking down ends here.....  -->
+
+            
+
+
+            <section id="Testimonials_sec">
+                <h3>Testimonials</h3>
+
+                <div id="testdiv">
+                    <!-- <img class="Testimonialsimgs" src="../Images/Testimonials_img1.png" alt="" srcset="">
+                    <img class="Testimonialsimgs" src="../Images/Testimonials_img1.png" alt="" srcset=""> -->
+
+                    <div class="testdivs_chids">
+                        <p class="Testimonials_txt">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                            unknown printer
+                            took a galley of type and scrambled it to make a type specimen book. It has survived not
+                            only five centuries,
+                            but also the leap into electronic typesetting, remaining essentially unchanged.
+                        </p>
+                        <p class="Testimonials_names">Venkatesh Chinnappa</p>
+                        <p class="testi_location">Salem, Tamil Nadu</p>
+                        <img class="quotationimg" src="../Images/quotation_backgroung_img.png" alt="" srcset="">
+                        <img class="quotationimg2" src="../Images/quotation_backgroung_img2.png" alt="" srcset="">
+                    </div>
+
+                    <div class="testdivs_chids">
+                        <p class="Testimonials_txt">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                            unknown printer
+                            took a galley of type and scrambled it to make a type specimen book. It has survived not
+                            only five centuries,
+                            but also the leap into electronic typesetting, remaining essentially unchanged.
+                        </p>
+                        <p class="Testimonials_names">Venkatesh Chinnappa</p>
+                        <p class="testi_location">Salem, Tamil Nadu</p>
+                        <img class="quotationimg" src="../Images/quotation_backgroung_img.png" alt="" srcset="">
+                        <img class="quotationimg2" src="../Images/quotation_backgroung_img2.png" alt="" srcset="">
+                    </div>
+
+                </div>
+            </section>
+        </main>
+
+
+    </section>
+
+
+
+    <script src="../Java Script/home slider down.js"></script>
+    <script src="../Java Script/HotelBkgSlider_down.js"></script>
+<script src="../Java Script/PoojaSlider_down.js"></script>
+<script src="../Java Script/UjjainSlider_down.js"></script>
+<script src="../Java Script/OmkarSlider_down.js"></script>
+<script src="../Java Script/MaabagSlider.js"></script>
+<script src="../Java Script/TaxiSlider_down.js"></script>
+<script src="../Java Script/AirportSlider_down.js"></script>
+<script src="../Java Script/Shoppingslider_down.js"></script>
+<script src="../Java Script/Galleryslider_down.js"></script>
+
+</body>
+
+
+</html>
